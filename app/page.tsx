@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { CinematicGallerySection } from "@/components/FoodGallerySection";
 import { Header } from "@/components/Header";
-import { HeroInteractiveIntro } from "@/components/HeroInteractiveIntro";
 import { JutsuExperienceSelector } from "@/components/JutsuExperienceSelector";
 import { Reveal } from "@/components/Reveal";
 import { SectionIntro } from "@/components/SectionIntro";
 import { SocialIconLinks } from "@/components/SocialIconLinks";
+import { JutsuHero } from "@/components/jutsu/JutsuHero";
 import { JUTSU_CONFIG } from "@/data/jutsu-config";
 import { locationImage } from "@/data/jutsu-media";
 import {
@@ -62,9 +62,9 @@ export default function Home() {
     <>
       <Header />
       <main className="overflow-hidden bg-[#fffdf9]">
-        <HeroInteractiveIntro />
+        <JutsuHero />
 
-        <section className="border-b border-white/10 bg-neutral-950 py-6 text-white">
+        <section className="hidden">
           <Reveal
             threshold={0.35}
             className="container-page grid gap-4 md:grid-cols-[1fr_auto] md:items-center"
@@ -87,7 +87,7 @@ export default function Home() {
 
         <section
           id="experiencias"
-          className="section-pad bg-[#161616] text-white"
+          className="bg-[#161616] pb-16 pt-28 text-white md:pb-20 md:pt-32"
         >
           <div className="container-page">
             <Reveal threshold={0.45}>

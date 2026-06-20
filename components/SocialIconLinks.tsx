@@ -3,6 +3,7 @@ import { INSTAGRAM_URL, buildWhatsappLink, whatsappMessages } from "@/lib/site";
 
 type SocialIconLinksProps = {
   className?: string;
+  variant?: "light" | "dark";
 };
 
 function InstagramIcon() {
@@ -24,7 +25,15 @@ function InstagramIcon() {
   );
 }
 
-export function SocialIconLinks({ className = "" }: SocialIconLinksProps) {
+export function SocialIconLinks({
+  className = "",
+  variant = "light",
+}: SocialIconLinksProps) {
+  const linkClass =
+    variant === "dark"
+      ? "border-white/12 bg-white/8 text-white/82 hover:border-[var(--jutsu-red)]/60 hover:bg-white/12 hover:text-white"
+      : "border-black/10 bg-white text-neutral-800 hover:border-[var(--jutsu-red)] hover:text-[var(--jutsu-red)]";
+
   return (
     <div className={`flex items-center gap-2 ${className}`}>
       <a
@@ -33,7 +42,7 @@ export function SocialIconLinks({ className = "" }: SocialIconLinksProps) {
         rel="noreferrer"
         aria-label="Abrir Instagram do Jutsu Sushi"
         title="Instagram"
-        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white text-neutral-800 transition hover:-translate-y-0.5 hover:border-[var(--jutsu-red)] hover:text-[var(--jutsu-red)]"
+        className={`inline-flex h-10 w-10 items-center justify-center rounded-full border transition hover:-translate-y-0.5 ${linkClass}`}
       >
         <InstagramIcon />
       </a>
@@ -43,7 +52,7 @@ export function SocialIconLinks({ className = "" }: SocialIconLinksProps) {
         rel="noreferrer"
         aria-label="Falar com o Jutsu Sushi pelo WhatsApp"
         title="WhatsApp"
-        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white text-neutral-800 transition hover:-translate-y-0.5 hover:border-[#25d366]/45 hover:text-[#188f45]"
+        className={`inline-flex h-10 w-10 items-center justify-center rounded-full border transition hover:-translate-y-0.5 ${linkClass}`}
       >
         <WhatsAppIcon className="h-[18px] w-[18px]" />
       </a>
