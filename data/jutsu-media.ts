@@ -8,6 +8,11 @@ export const logoMedia = {
   alt: "Jutsu Sushi",
 } satisfies JutsuMediaAsset;
 
+export const logoDarkMedia = {
+  src: "/jutsu/logo-jutsu-dark.png",
+  alt: "Jutsu Sushi",
+} satisfies JutsuMediaAsset;
+
 export const faviconMedia = {
   src: "/jutsu/favicon-jutsu.png",
   alt: "Jutsu Sushi",

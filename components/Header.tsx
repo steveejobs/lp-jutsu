@@ -10,24 +10,24 @@ import {
 
 export function Header() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-white/88 backdrop-blur-xl">
-      <div className="container-page flex h-16 items-center justify-between gap-4 md:h-20 md:gap-6">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/[0.07] bg-white/92 shadow-[0_10px_36px_rgba(16,16,16,0.055)] backdrop-blur-xl">
+      <div className="container-page flex h-[70px] items-center justify-between gap-4 md:h-[86px] md:gap-6">
         <a
           href="#topo"
           className="flex shrink-0 items-center gap-3"
           aria-label="Jutsu Sushi"
         >
           <Image
-            src={images.logo}
+            src={images.logoDark}
             alt="Jutsu Sushi"
             width={190}
             height={64}
             priority
-            className="h-auto max-h-11 w-[128px] max-w-[38vw] object-contain md:max-h-14 md:w-[164px] lg:w-[172px]"
+            className="h-auto max-h-[52px] w-[152px] max-w-[42vw] object-contain drop-shadow-[0_1px_0_rgba(255,255,255,0.75)] md:max-h-[66px] md:w-[198px] lg:w-[210px]"
           />
         </a>
 
-        <nav className="hidden items-center gap-7 text-sm font-bold text-neutral-700 lg:flex">
+        <nav className="hidden items-center gap-7 text-sm font-extrabold text-neutral-800 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}

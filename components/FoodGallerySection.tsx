@@ -1,8 +1,8 @@
-import Image from "next/image";
 import {
   cinematicGalleryImages,
   type JutsuMediaAsset,
 } from "@/data/jutsu-media";
+import { FoodGalleryMarquee } from "@/components/FoodGalleryMarqueeClient";
 
 type GalleryItem = JutsuMediaAsset;
 
@@ -23,95 +23,11 @@ const cinematicCategories = [
   "Desejo",
 ];
 
-const cinematicGalleryItems = Array.from(
-  new Map(cinematicGalleryImages.map((item) => [item.src, item])).values(),
+const cinematicImages = cinematicGalleryImages;
+
+const uniqueImages = Array.from(
+  new Map(cinematicImages.map((img) => [img.src, img])).values(),
 ).slice(0, 10);
-
-function GalleryCard({
-  item,
-  index,
-  compact = false,
-  decorative = false,
-}: {
-  item: GalleryItem;
-  index: number;
-  compact?: boolean;
-  decorative?: boolean;
-}) {
-  const shape = compact
-    ? "h-[238px] w-[190px]"
-    : index % 5 === 0
-      ? "h-[270px] w-[390px]"
-      : index % 3 === 0
-        ? "h-[270px] w-[320px]"
-        : "h-[270px] w-[270px]";
-  const descriptiveAlt =
-    item.alt.trim().toLowerCase() === "image"
-      ? "Prato do Jutsu Sushi"
-      : item.alt;
-
-  return (
-    <figure
-      aria-hidden={decorative ? "true" : undefined}
-      className={`group relative shrink-0 overflow-hidden rounded-lg bg-neutral-950 shadow-[0_18px_42px_rgba(0,0,0,0.24)] ${shape}`}
-    >
-      <Image
-        src={item.src}
-        alt={decorative ? "" : descriptiveAlt}
-        fill
-        sizes="(max-width: 768px) 190px, 390px"
-        quality={86}
-        loading="lazy"
-        className="h-full w-full object-cover transition duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] md:group-hover:scale-[1.025]"
-      />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,transparent,rgba(0,0,0,0.22))]" />
-    </figure>
-  );
-}
-
-function GalleryLoop({
-  items,
-  direction,
-  indexOffset = 0,
-  compact = false,
-}: {
-  items: GalleryItem[];
-  direction: "left" | "right";
-  indexOffset?: number;
-  compact?: boolean;
-}) {
-  return (
-    <div
-      className={`gallery-marquee ${
-        compact ? "gallery-marquee-mobile" : "gallery-marquee-desktop"
-      } ${
-        direction === "left" ? "gallery-marquee-left" : "gallery-marquee-right"
-      } flex w-max gap-4`}
-    >
-      <div className="flex gap-4">
-        {items.map((item, index) => (
-          <GalleryCard
-            key={`${item.src}-${direction}-real`}
-            item={item}
-            index={index + indexOffset}
-            compact={compact}
-          />
-        ))}
-      </div>
-      <div className="flex gap-4" aria-hidden="true" role="presentation">
-        {items.map((item, index) => (
-          <GalleryCard
-            key={`${item.src}-${direction}-loop`}
-            item={item}
-            index={index + indexOffset}
-            compact={compact}
-            decorative
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
 
 function GallerySection({
   id,
@@ -121,13 +37,9 @@ function GallerySection({
   items,
   categories,
 }: GallerySectionProps) {
-  const uniqueImages = Array.from(
+  const galleryImages = Array.from(
     new Map(items.map((item) => [item.src, item])).values(),
   ).slice(0, 10);
-  const midpoint = Math.ceil(uniqueImages.length / 2);
-  const rowOne = uniqueImages.slice(0, midpoint);
-  const rowTwo = uniqueImages.slice(midpoint);
-  const mobileRow = uniqueImages;
 
   return (
     <section
@@ -153,16 +65,7 @@ function GallerySection({
       </div>
 
       <div className="mt-8 md:mt-10">
-        <div className="overflow-hidden md:hidden">
-          <GalleryLoop items={mobileRow} direction="left" compact />
-        </div>
-
-        <div className="hidden space-y-4 md:block">
-          <GalleryLoop items={rowOne} direction="left" />
-          {rowTwo.length > 0 ? (
-            <GalleryLoop items={rowTwo} direction="right" indexOffset={2} />
-          ) : null}
-        </div>
+        <FoodGalleryMarquee items={galleryImages} />
       </div>
 
       {categories ? (
@@ -194,7 +97,7 @@ export function CinematicGallerySection() {
       eyebrow="Galeria cinematográfica"
       title="Cortes, texturas e desejo."
       copy="Close-ups, brilho e textura para abrir o apetite antes do pedido."
-      items={cinematicGalleryItems}
+      items={uniqueImages}
       categories={cinematicCategories}
     />
   );

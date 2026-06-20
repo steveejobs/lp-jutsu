@@ -118,7 +118,7 @@ export function HeroInteractiveIntro() {
   return (
     <section
       id="topo"
-      className="jutsu-hero-stage relative isolate min-h-[calc(100svh-64px)] overflow-hidden bg-neutral-950 pt-16 text-white md:min-h-[calc(100svh-80px)] md:pt-20"
+      className="jutsu-hero-stage relative isolate min-h-[calc(100svh-70px)] overflow-hidden bg-neutral-950 pt-[70px] text-white md:min-h-[calc(100svh-86px)] md:pt-[86px]"
       aria-label="Jutsu Sushi"
     >
       <Image
@@ -126,35 +126,35 @@ export function HeroInteractiveIntro() {
         alt="Preparo de sushi no Jutsu Sushi"
         fill
         priority
-        quality={90}
+        quality={96}
         sizes="100vw"
-        className="absolute inset-0 scale-[1.045] animate-[jutsuHeroImageSettle_2200ms_cubic-bezier(0.22,1,0.36,1)_both] object-cover object-[58%_50%]"
+        className="absolute inset-0 scale-[1.035] animate-[jutsuHeroImageSettle_1800ms_cubic-bezier(0.22,1,0.36,1)_both] object-cover object-[61%_50%] brightness-[0.9] contrast-[1.08] saturate-[1.08] md:object-[57%_50%]"
       />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.92)_0%,rgba(9,9,9,0.66)_42%,rgba(9,9,9,0.16)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_42%,rgba(216,58,36,0.24),transparent_38%)]" />
-      <div className="absolute right-[-12vw] top-[17%] h-[48vh] w-[34vw] rotate-[-17deg] bg-[linear-gradient(180deg,rgba(216,58,36,0.24),rgba(255,126,47,0.06),transparent)]" />
-      <div className="absolute left-0 top-[24%] h-px w-[42vw] origin-left animate-[lineSweep_4.8s_ease-in-out_800ms_infinite] bg-[linear-gradient(90deg,rgba(216,58,36,0),rgba(216,58,36,0.95),rgba(255,139,65,0))]" />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-neutral-950 to-transparent" />
+      <div className="absolute inset-0 bg-neutral-950/38" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,3,3,0.74)_0%,rgba(5,5,5,0.52)_43%,rgba(5,5,5,0.22)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_66%,rgba(255,111,48,0.10),transparent_42%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.26)_0%,transparent_36%,rgba(0,0,0,0.48)_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-neutral-950 via-neutral-950/48 to-transparent" />
 
       <JutsuHeroOrganicReveal />
 
-      <div className="container-page relative z-40 flex min-h-[calc(100svh-64px)] items-end pb-12 pt-12 md:min-h-[calc(100svh-80px)] md:items-center md:pb-14">
-        <div className="jutsu-hero-copy max-w-3xl">
+      <div className="container-page relative z-40 flex min-h-[calc(100svh-70px)] items-end pb-12 pt-12 md:min-h-[calc(100svh-86px)] md:items-center md:pb-14">
+        <div className="jutsu-hero-copy max-w-[760px]">
           <Image
             src={images.logo}
             alt="Jutsu Sushi"
             width={210}
             height={82}
             priority
-            className="mb-7 h-auto w-[154px] drop-shadow-[0_10px_26px_rgba(0,0,0,0.42)] md:w-[196px]"
+            className="mb-8 h-auto w-[162px] drop-shadow-[0_14px_34px_rgba(0,0,0,0.56)] md:w-[206px]"
           />
           <p className="text-sm font-black uppercase tracking-[0.08em] text-white/74">
             {JUTSU_CONFIG.googleCategory} · Araguaína - TO
           </p>
-          <h1 className="mt-5 max-w-3xl text-5xl font-black leading-[0.98] md:text-7xl">
+          <h1 className="mt-5 max-w-[720px] text-5xl font-black leading-[0.96] md:text-7xl">
             O melhor da culinária japonesa em Araguaína.
           </h1>
-          <p className="mt-5 max-w-xl text-lg font-bold leading-8 text-white/78 md:text-xl">
+          <p className="mt-6 max-w-[590px] text-lg font-bold leading-8 text-white/82 md:text-xl">
             Sushi, combinados e pedidos pelo WhatsApp com excelente
             custo-benefício.
           </p>

@@ -2,6 +2,7 @@ import {
   cinematicGalleryImages,
   heroImage,
   locationImage,
+  logoDarkMedia,
   logoMedia,
   scrollExperienceMedia,
 } from "@/data/jutsu-media";
@@ -46,6 +47,7 @@ export const navLinks = [
 
 export const images = {
   logo: logoMedia.src,
+  logoDark: logoDarkMedia.src,
   heroIntro: heroImage.src,
   cinematicGallery: cinematicGalleryImages.map((item) => item.src),
   scrollExperienceBg: scrollExperienceMedia.background.src,
