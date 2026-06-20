@@ -85,13 +85,17 @@ export default function Home() {
           </Reveal>
         </section>
 
-        <section id="experiencias" className="section-pad bg-[#fffdf9]">
+        <section
+          id="experiencias"
+          className="section-pad bg-[#161616] text-white"
+        >
           <div className="container-page">
             <Reveal threshold={0.45}>
               <SectionIntro
                 eyebrow="Pedido"
                 title="Peça do seu jeito."
                 copy="Delivery, retirada ou visita: três caminhos diretos para aproveitar o Jutsu Sushi à noite."
+                light
               />
             </Reveal>
             <div className="mt-9 grid gap-4 md:grid-cols-3">
@@ -102,17 +106,17 @@ export default function Home() {
                   threshold={0.22}
                   className="h-full"
                 >
-                  <article className="fine-border group h-full rounded-lg bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <article className="group h-full rounded-lg border border-white/10 bg-[#202020] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.16)] transition duration-300 hover:-translate-y-1 hover:border-[var(--jutsu-red)]/40 hover:bg-[#242424]">
                     <div className="mb-8 h-px w-16 bg-[var(--jutsu-red)] transition-all duration-500 group-hover:w-24" />
-                    <h3 className="text-2xl font-black text-neutral-950">
+                    <h3 className="text-2xl font-black text-white">
                       {item.title}
                     </h3>
-                    <p className="mt-4 min-h-14 text-base leading-7 text-neutral-600">
+                    <p className="mt-4 min-h-14 text-base font-semibold leading-7 text-white/68">
                       {item.text}
                     </p>
                     <a
                       href={item.href}
-                      className="btn btn-dark mt-6 w-full"
+                      className="btn btn-primary mt-6 w-full"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -128,13 +132,14 @@ export default function Home() {
         <JutsuExperienceSelector />
         <CinematicGallerySection />
 
-        <section id="destaques" className="section-pad bg-white">
+        <section id="destaques" className="section-pad bg-[#121212] text-white">
           <div className="container-page">
             <Reveal threshold={0.45}>
               <SectionIntro
                 eyebrow="Diferenciais"
                 title="Por que escolher o Jutsu."
                 copy="Sushi bem montado, pedido rápido e custo-benefício para comer japonês sem complicar."
+                light
               />
             </Reveal>
             <div className="mt-9 grid gap-4 md:grid-cols-4">
@@ -145,12 +150,12 @@ export default function Home() {
                   threshold={0.2}
                   className="h-full"
                 >
-                  <article className="h-full rounded-lg border border-black/10 bg-[#fffdf9] p-5">
+                  <article className="h-full rounded-lg border border-white/10 bg-[#1d1d1d] p-5 shadow-[0_16px_46px_rgba(0,0,0,0.18)]">
                     <span className="block h-2 w-10 rounded-full bg-[var(--jutsu-red)]" />
-                    <h3 className="mt-6 text-xl font-black leading-tight text-neutral-950">
+                    <h3 className="mt-6 text-xl font-black leading-tight text-white">
                       {item.title}
                     </h3>
-                    <p className="mt-4 text-sm font-bold leading-6 text-neutral-600">
+                    <p className="mt-4 text-sm font-bold leading-6 text-white/64">
                       {item.text}
                     </p>
                   </article>

@@ -14,7 +14,6 @@ type GallerySectionProps = {
   title: string;
   copy: string;
   items: GalleryItem[];
-  variant: "brand" | "cinematic";
   categories?: string[];
 };
 
@@ -35,19 +34,15 @@ function GalleryCard({
   item: GalleryItem;
   index: number;
   compact?: boolean;
-  variant: "brand" | "cinematic";
+  variant?: "cinematic";
 }) {
   const shape = compact
     ? "h-[220px] w-[180px]"
-    : variant === "brand"
-      ? index % 4 === 0
-        ? "h-[330px] w-[420px]"
-        : "h-[330px] w-[300px]"
-      : index % 5 === 0
-        ? "h-[250px] w-[360px]"
-        : index % 3 === 0
-          ? "h-[250px] w-[300px]"
-          : "h-[250px] w-[250px]";
+    : index % 5 === 0
+      ? "h-[250px] w-[360px]"
+      : index % 3 === 0
+        ? "h-[250px] w-[300px]"
+        : "h-[250px] w-[250px]";
 
   return (
     <figure
@@ -58,17 +53,11 @@ function GalleryCard({
         alt={item.alt}
         fill
         sizes="(max-width: 768px) 180px, 360px"
-        quality={variant === "brand" ? 88 : 82}
+        quality={82}
         loading="lazy"
         className="h-full w-full object-cover transition duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] md:group-hover:scale-[1.025]"
       />
-      <div
-        className={`pointer-events-none absolute inset-0 ${
-          variant === "brand"
-            ? "bg-gradient-to-t from-black/24 via-transparent to-transparent"
-            : "bg-[radial-gradient(circle_at_50%_35%,transparent,rgba(0,0,0,0.24))]"
-        }`}
-      />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,transparent,rgba(0,0,0,0.24))]" />
     </figure>
   );
 }
@@ -84,7 +73,7 @@ function GalleryLoop({
   direction: "left" | "right";
   indexOffset?: number;
   compact?: boolean;
-  variant: "brand" | "cinematic";
+  variant?: "cinematic";
 }) {
   return (
     <div
@@ -126,37 +115,29 @@ function GallerySection({
   title,
   copy,
   items,
-  variant,
   categories,
 }: GallerySectionProps) {
   const midpoint = Math.ceil(items.length / 2);
   const firstRow = items.slice(0, midpoint);
   const secondRow = items.slice(midpoint);
-  const isCinematic = variant === "cinematic";
 
   return (
     <section
       id={id}
-      className={`overflow-hidden py-10 md:pb-16 md:pt-12 ${
-        isCinematic ? "bg-neutral-950 text-white" : "bg-[#f6f1eb]"
-      }`}
+      className="overflow-hidden bg-neutral-950 py-10 text-white md:pb-16 md:pt-12"
     >
       <div className="container-page">
         <div className="grid gap-7 md:grid-cols-[0.82fr_1.18fr] md:items-end">
           <div>
             <span className="eyebrow">{eyebrow}</span>
             <h2
-              className={`mt-5 max-w-2xl text-4xl font-black leading-[1.02] md:text-6xl ${
-                isCinematic ? "text-white" : "text-neutral-950"
-              }`}
+              className={`mt-5 max-w-2xl text-4xl font-black leading-[1.02] md:text-6xl ${"text-white"}`}
             >
               {title}
             </h2>
           </div>
           <p
-            className={`max-w-xl text-base font-semibold leading-7 md:justify-self-end md:text-lg ${
-              isCinematic ? "text-white/68" : "text-neutral-600"
-            }`}
+            className={`max-w-xl text-base font-semibold leading-7 md:justify-self-end md:text-lg ${"text-white/68"}`}
           >
             {copy}
           </p>
@@ -169,17 +150,17 @@ function GallerySection({
             items={items}
             direction="left"
             compact
-            variant={variant}
+            variant="cinematic"
           />
         </div>
 
         <div className="hidden space-y-4 md:block">
-          <GalleryLoop items={firstRow} direction="left" variant={variant} />
+          <GalleryLoop items={firstRow} direction="left" variant="cinematic" />
           <GalleryLoop
             items={secondRow}
             direction="right"
             indexOffset={2}
-            variant={variant}
+            variant="cinematic"
           />
         </div>
       </div>
@@ -193,9 +174,7 @@ function GallerySection({
                 className={`shrink-0 rounded-full border px-4 py-2 text-xs font-black uppercase tracking-wide transition ${
                   index === 0
                     ? "border-[var(--jutsu-red)] bg-white text-[var(--jutsu-red)] shadow-[0_10px_24px_rgba(216,58,36,0.08)]"
-                    : isCinematic
-                      ? "border-white/12 bg-white/8 text-white/72 hover:border-[var(--jutsu-red)]/50 hover:text-white"
-                      : "border-black/10 bg-white/78 text-neutral-700 hover:border-[var(--jutsu-red)]/40 hover:text-neutral-950"
+                    : "border-white/12 bg-white/8 text-white/72 hover:border-[var(--jutsu-red)]/50 hover:text-white"
                 }`}
               >
                 {category}
@@ -216,7 +195,6 @@ export function CinematicGallerySection() {
       title="Cortes, texturas e desejo."
       copy="Close-ups, brilho e textura para abrir o apetite antes do pedido."
       items={cinematicGalleryImages}
-      variant="cinematic"
       categories={cinematicCategories}
     />
   );
