@@ -1,10 +1,8 @@
 import Image from "next/image";
-import {
-  BrandGallerySection,
-  CinematicGallerySection,
-} from "@/components/FoodGallerySection";
+import { CinematicGallerySection } from "@/components/FoodGallerySection";
 import { Header } from "@/components/Header";
 import { HeroInteractiveIntro } from "@/components/HeroInteractiveIntro";
+import { JutsuExperienceSelector } from "@/components/JutsuExperienceSelector";
 import { Reveal } from "@/components/Reveal";
 import { SectionIntro } from "@/components/SectionIntro";
 import { SocialIconLinks } from "@/components/SocialIconLinks";
@@ -22,40 +20,40 @@ import {
 const orderOptions = [
   {
     title: "Delivery",
-    text: "Peca pelo WhatsApp com praticidade e receba sua experiencia Jutsu.",
-    cta: "Pedir agora",
+    text: "Peça pelo WhatsApp e receba seus favoritos com praticidade.",
+    cta: "Pedir pelo WhatsApp",
     href: buildWhatsappLink(whatsappMessages.delivery),
   },
   {
     title: "Retirada",
-    text: "Faca seu pedido e retire no local.",
+    text: "Faça seu pedido e retire no Jutsu sem complicar.",
     cta: "Pedir para retirada",
     href: buildWhatsappLink(whatsappMessages.pickup),
   },
   {
     title: "Visitar o Jutsu",
-    text: "Conheca o espaco e aproveite a culinaria japonesa a noite.",
-    cta: "Ver localizacao",
+    text: "Passe por aqui para comer japonês à noite em Araguaína.",
+    cta: "Ver localização",
     href: GOOGLE_MAPS_URL,
   },
 ];
 
 const highlights = [
   {
-    title: "Culinaria japonesa autentica",
-    text: "Sushis, sashimis e combinados com identidade japonesa e preparo direto.",
+    title: "Sushi com pegada japonesa",
+    text: "Peças bem montadas, sabor direto e apresentação caprichada.",
   },
   {
-    title: "Excelente custo-beneficio",
-    text: "Uma proposta acessivel para pedir bem sem perder apresentacao.",
+    title: "Bom custo-benefício",
+    text: "Uma escolha acessível para pedir sushi sem abrir mão do visual.",
   },
   {
-    title: "Atendimento a noite",
-    text: "Aberto de terca a domingo, das 18:00 as 23:00.",
+    title: "Aberto à noite",
+    text: "De terça a domingo, das 18h às 23h.",
   },
   {
-    title: "Pedido rapido pelo WhatsApp",
-    text: "Cardapio, pedido e combinacao de retirada ou entrega em poucos toques.",
+    title: "Pedido rápido no WhatsApp",
+    text: "Chame, escolha seu pedido e combine delivery ou retirada.",
   },
 ];
 
@@ -66,7 +64,7 @@ export default function Home() {
       <main className="overflow-hidden bg-[#fffdf9]">
         <HeroInteractiveIntro />
 
-        <section className="border-b border-black/10 bg-neutral-950 py-6 text-white">
+        <section className="border-b border-white/10 bg-neutral-950 py-6 text-white">
           <Reveal
             threshold={0.35}
             className="container-page grid gap-4 md:grid-cols-[1fr_auto] md:items-center"
@@ -75,14 +73,14 @@ export default function Home() {
               <p className="text-lg font-black text-white">
                 <span className="text-[var(--jutsu-red)]">★★★★★</span>{" "}
                 {JUTSU_CONFIG.googleRating} no Google ·{" "}
-                {JUTSU_CONFIG.googleReviews} avaliacoes
+                {JUTSU_CONFIG.googleReviews} avaliações
               </p>
               <p className="mt-1 text-sm font-bold text-white/68">
-                {JUTSU_CONFIG.googleCategory} · Araguaina - TO
+                {JUTSU_CONFIG.googleCategory} · Araguaína - TO
               </p>
             </div>
             <p className="max-w-md text-sm font-black uppercase tracking-[0.08em] text-white/78">
-              Culinaria japonesa com excelente custo-beneficio.
+              Culinária japonesa com excelente custo-benefício.
             </p>
           </Reveal>
         </section>
@@ -92,8 +90,8 @@ export default function Home() {
             <Reveal threshold={0.45}>
               <SectionIntro
                 eyebrow="Pedido"
-                title="Peca do seu jeito."
-                copy="Delivery, retirada ou visita: tres caminhos diretos para aproveitar o Jutsu Sushi a noite."
+                title="Peça do seu jeito."
+                copy="Delivery, retirada ou visita: três caminhos diretos para aproveitar o Jutsu Sushi à noite."
               />
             </Reveal>
             <div className="mt-9 grid gap-4 md:grid-cols-3">
@@ -127,7 +125,7 @@ export default function Home() {
           </div>
         </section>
 
-        <BrandGallerySection />
+        <JutsuExperienceSelector />
         <CinematicGallerySection />
 
         <section id="destaques" className="section-pad bg-white">
@@ -136,7 +134,7 @@ export default function Home() {
               <SectionIntro
                 eyebrow="Diferenciais"
                 title="Por que escolher o Jutsu."
-                copy="Uma marca jovem, direta e feita para quem quer japones autentico com desejo, entrega e preco justo."
+                copy="Sushi bem montado, pedido rápido e custo-benefício para comer japonês sem complicar."
               />
             </Reveal>
             <div className="mt-9 grid gap-4 md:grid-cols-4">
@@ -167,14 +165,14 @@ export default function Home() {
             <Reveal threshold={0.42} className="max-w-3xl">
               <p className="text-sm font-black text-[var(--jutsu-red)]">
                 ★★★★★ {JUTSU_CONFIG.googleRating} no Google ·{" "}
-                {JUTSU_CONFIG.googleReviews} avaliacoes
+                {JUTSU_CONFIG.googleReviews} avaliações
               </p>
               <h2 className="mt-4 text-4xl font-black leading-[1.04] md:text-6xl">
                 Quem pede, volta.
               </h2>
               <p className="mt-5 max-w-2xl text-base font-bold leading-7 text-white/68 md:text-lg">
                 Clientes destacam sabor, praticidade e uma proposta japonesa com
-                otimo custo-beneficio.
+                ótimo custo-benefício.
               </p>
             </Reveal>
           </div>
@@ -187,13 +185,13 @@ export default function Home() {
           >
             <div>
               <SectionIntro
-                eyebrow="Localizacao"
-                title="Estamos em Araguaina."
-                copy="Venha nos visitar ou peca direto pelo WhatsApp."
+                eyebrow="Localização"
+                title="Estamos em Araguaína."
+                copy="Venha nos visitar ou peça direto pelo WhatsApp."
               />
               <div className="mt-7 space-y-4 text-base leading-7 text-neutral-700">
                 <p>
-                  <strong className="text-neutral-950">Endereco:</strong>{" "}
+                  <strong className="text-neutral-950">Endereço:</strong>{" "}
                   <a
                     href={GOOGLE_MAPS_URL}
                     target="_blank"
@@ -204,7 +202,7 @@ export default function Home() {
                   </a>
                 </p>
                 <p>
-                  <strong className="text-neutral-950">Horario:</strong>{" "}
+                  <strong className="text-neutral-950">Horário:</strong>{" "}
                   {JUTSU_CONFIG.openingHours}
                 </p>
                 <p>
@@ -254,7 +252,7 @@ export default function Home() {
                   Jutsu Sushi
                 </p>
                 <p className="mt-1 text-xs font-bold text-neutral-600">
-                  Fachada preta, faixa vermelha e entrada facil de reconhecer.
+                  Fachada preta, faixa vermelha e entrada fácil de reconhecer.
                 </p>
               </div>
             </div>
@@ -276,7 +274,7 @@ export default function Home() {
               className="h-auto w-[112px] object-contain"
             />
             <p className="text-sm font-black text-neutral-950">
-              Jutsu Sushi · Araguaina - TO
+              Jutsu Sushi · Araguaína - TO
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-4 text-sm font-bold text-neutral-600">

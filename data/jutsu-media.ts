@@ -20,7 +20,7 @@ export const heroImage = {
 
 export const locationImage = {
   src: "/jutsu/fachada-jutsu.png",
-  alt: "Fachada do Jutsu Sushi em Araguaina",
+  alt: "Fachada do Jutsu Sushi em Araguaína",
 } satisfies JutsuMediaAsset;
 
 export const scrollExperienceMedia = {
@@ -59,28 +59,94 @@ export const brandGalleryImages = [
   },
 ] satisfies JutsuMediaAsset[];
 
+export const jutsuExperienceItems = [
+  {
+    key: "delivery",
+    label: "Delivery",
+    title: "Delivery sem enrolar.",
+    text: "Peça pelo WhatsApp e receba seus favoritos com praticidade.",
+    cta: "Pedir pelo WhatsApp",
+    action: "whatsapp",
+    message:
+      "Olá, vim pelo site e quero fazer um pedido por delivery no Jutsu Sushi.",
+    image: brandGalleryImages[5],
+  },
+  {
+    key: "combinados",
+    label: "Combinados",
+    title: "Combinados para dividir.",
+    text: "Sushi bem montado para pedir sozinho, em casal ou com a galera.",
+    cta: "Ver opções pelo WhatsApp",
+    action: "whatsapp",
+    message:
+      "Olá, vim pelo site e quero ver as opções de combinados do Jutsu Sushi.",
+    image: brandGalleryImages[2],
+  },
+  {
+    key: "hot",
+    label: "Hot e especiais",
+    title: "Quente, crocante e direto.",
+    text: "Peças para quem quer sabor forte e aquele pedido sem erro.",
+    cta: "Pedir agora",
+    action: "whatsapp",
+    message:
+      "Olá, vim pelo site e quero pedir hot e peças especiais no Jutsu Sushi.",
+    image: brandGalleryImages[3],
+  },
+  {
+    key: "classicos",
+    label: "Sashimis e clássicos",
+    title: "Clássicos japoneses.",
+    text: "Cortes, textura e preparo para quem gosta do essencial bem feito.",
+    cta: "Chamar no WhatsApp",
+    action: "whatsapp",
+    message:
+      "Olá, vim pelo site e quero pedir sashimis e clássicos japoneses no Jutsu Sushi.",
+    image: brandGalleryImages[4],
+  },
+  {
+    key: "visita",
+    label: "Visitar o Jutsu",
+    title: "Passe no Jutsu.",
+    text: "Estamos em Araguaína, de terça a domingo, das 18h às 23h.",
+    cta: "Ver localização",
+    action: "location",
+    message: "Olá, vim pelo site e quero ver a localização do Jutsu Sushi.",
+    image: brandGalleryImages[0],
+  },
+] satisfies Array<{
+  key: string;
+  label: string;
+  title: string;
+  text: string;
+  cta: string;
+  action: "whatsapp" | "location";
+  message: string;
+  image: JutsuMediaAsset;
+}>;
+
 export const cinematicGalleryImages = [
   { src: "/jutsu/gallery-food-10.jpg", alt: "Close-up de sushi com molho" },
   { src: "/jutsu/gallery-food-11.jpg", alt: "Sushi em detalhe" },
   {
     src: "/jutsu/gallery-food-12.jpg",
-    alt: "Combinado japones em composicao escura",
+    alt: "Combinado japonês em composição escura",
   },
   {
     src: "/jutsu/gallery-food-13.jpg",
-    alt: "Pecas de sushi com brilho e textura",
+    alt: "Peças de sushi com brilho e textura",
   },
-  { src: "/jutsu/gallery-food-14.jpg", alt: "Selecao de sushi em close-up" },
+  { src: "/jutsu/gallery-food-14.jpg", alt: "Seleção de sushi em close-up" },
   { src: "/jutsu/gallery-food-15.jpg", alt: "Detalhe de sushi com contraste" },
-  { src: "/jutsu/gallery-food-16.jpg", alt: "Peca japonesa finalizada" },
+  { src: "/jutsu/gallery-food-16.jpg", alt: "Peça japonesa finalizada" },
   { src: "/jutsu/gallery-food-17.jpg", alt: "Sushi com textura e molho" },
   {
     src: "/jutsu/gallery-food-18.jpg",
-    alt: "Prato japones em fotografia cinematografica",
+    alt: "Prato japonês em fotografia cinematográfica",
   },
   {
     src: "/jutsu/gallery-food-19.jpg",
-    alt: "Comida japonesa em composicao premium",
+    alt: "Comida japonesa em composição premium",
   },
 ] satisfies JutsuMediaAsset[];
 
@@ -93,7 +159,7 @@ export const instagramGalleryImages = [
 
 export const mediaBySection = {
   hero: [heroImage],
-  brandGallery: brandGalleryImages,
+  jutsuExperience: jutsuExperienceItems.map((item) => item.image),
   cinematicGallery: cinematicGalleryImages,
   location: [locationImage],
   instagram: instagramGalleryImages,

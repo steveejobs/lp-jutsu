@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import {
-  brandGalleryImages,
   cinematicGalleryImages,
   type JutsuMediaAsset,
 } from "@/data/jutsu-media";
@@ -110,7 +109,7 @@ function GalleryLoop({
         {items.map((item, index) => (
           <GalleryCard
             key={`${item.src}-${direction}-loop`}
-            item={item}
+            item={{ ...item, alt: "" }}
             index={index + indexOffset}
             compact={compact}
             variant={variant}
@@ -209,26 +208,13 @@ function GallerySection({
   );
 }
 
-export function BrandGallerySection() {
-  return (
-    <GallerySection
-      id="jutsu-de-perto"
-      eyebrow="Galeria real"
-      title="O Jutsu de perto."
-      copy="Ambiente, fachada e pratos reais para conhecer a experiencia da marca."
-      items={brandGalleryImages}
-      variant="brand"
-    />
-  );
-}
-
 export function CinematicGallerySection() {
   return (
     <GallerySection
       id="galeria-cinematografica"
-      eyebrow="Galeria cinematografica"
+      eyebrow="Galeria cinematográfica"
       title="Cortes, texturas e desejo."
-      copy="Uma selecao visual mais intensa para destacar sabor, textura e apetite."
+      copy="Close-ups, brilho e textura para abrir o apetite antes do pedido."
       items={cinematicGalleryImages}
       variant="cinematic"
       categories={cinematicCategories}

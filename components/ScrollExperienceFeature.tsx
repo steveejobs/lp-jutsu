@@ -12,8 +12,8 @@ export function ScrollExperienceFeature() {
       mobilePosterSrc={scrollExperienceMedia.background.src}
       bgImageSrc={scrollExperienceMedia.background.src}
       title="Do pedido ao primeiro prato."
-      date="JUTSU A NOITE"
-      scrollToExpand="Uma experiencia japonesa direta, urbana e feita para pedir."
+      date="JUTSU À NOITE"
+      scrollToExpand="Uma experiência japonesa direta, urbana e feita para pedir."
     />
   );
 }

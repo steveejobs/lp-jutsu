@@ -24,11 +24,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(FULL_SITE_URL),
   title: "Jutsu Sushi | Links",
   description:
-    "Peca pelo WhatsApp, veja a localizacao ou conheca o Jutsu Sushi em Araguaina.",
+    "Peça pelo WhatsApp, veja a localização ou conheça o Jutsu Sushi em Araguaína.",
   openGraph: {
     title: "Jutsu Sushi | Links",
     description:
-      "Peca pelo WhatsApp, veja a localizacao ou conheca o Jutsu Sushi em Araguaina.",
+      "Peça pelo WhatsApp, veja a localização ou conheça o Jutsu Sushi em Araguaína.",
     url: "/instagram",
     images: [
       {
@@ -43,14 +43,14 @@ export const metadata: Metadata = {
 
 const whatsappLinks = {
   pedido: createWhatsAppLink(
-    "Ola, vim pelo Instagram e quero fazer um pedido no Jutsu Sushi.",
+    "Olá, vim pelo Instagram e quero fazer um pedido no Jutsu Sushi.",
   ),
   localizacao: createWhatsAppLink(
-    "Ola, vim pelo Instagram e quero saber mais sobre o Jutsu Sushi.",
+    "Olá, vim pelo Instagram e quero saber mais sobre o Jutsu Sushi.",
   ),
 };
 
-const linkOptions = ["Delivery", "Retirada", "Jantar a noite"];
+const linkOptions = ["Delivery", "Retirada", "Jantar à noite"];
 const instagramTestimonials = jutsuReviews.slice(0, 8);
 
 function IconRoute() {
@@ -145,12 +145,12 @@ export default function InstagramLinksPage() {
             Jutsu Sushi
           </h1>
           <p className="mx-auto mt-2 max-w-[20rem] text-[1.68rem] font-black leading-[1.04]">
-            O melhor da culinaria japonesa em Araguaina.
+            O melhor da culinária japonesa em Araguaína.
           </p>
           <p className="mt-4 inline-flex items-center justify-center rounded-full border border-black/10 bg-white px-3.5 py-2 text-xs font-black text-neutral-900 shadow-[0_10px_22px_rgba(16,16,16,0.04)]">
             <span className="mr-2 text-[var(--jutsu-red)]">★★★★★</span>
             {JUTSU_CONFIG.googleRating} no Google · {JUTSU_CONFIG.googleReviews}{" "}
-            avaliacoes
+            avaliações
           </p>
           <div className="mt-3 flex flex-wrap justify-center gap-2">
             {linkOptions.map((option) => (
@@ -176,7 +176,7 @@ export default function InstagramLinksPage() {
             Pedir pelo WhatsApp
           </LinkButton>
           <LinkButton href={GOOGLE_MAPS_URL} icon={<IconRoute />} delay={220}>
-            Ver localizacao
+            Ver localização
           </LinkButton>
           <LinkButton href={INSTAGRAM_URL} icon={<IconInstagram />} delay={290}>
             Instagram
@@ -198,7 +198,7 @@ export default function InstagramLinksPage() {
           style={{ "--ig-delay": "640ms" } as React.CSSProperties}
         >
           <h2 className="text-2xl font-black leading-tight">
-            Estamos em Araguaina.
+            Estamos em Araguaína.
           </h2>
           <div className="mt-3 space-y-2 text-sm font-bold leading-6 text-white/72">
             <p>{ADDRESS}</p>
@@ -227,7 +227,7 @@ export default function InstagramLinksPage() {
         </section>
 
         <footer className="ig-rise mt-5 pb-1 text-center text-xs font-black text-neutral-500">
-          <p>Jutsu Sushi · Araguaina - TO</p>
+          <p>Jutsu Sushi · Araguaína - TO</p>
         </footer>
       </div>
     </main>

@@ -1,5 +1,4 @@
 import {
-  brandGalleryImages,
   cinematicGalleryImages,
   heroImage,
   locationImage,
@@ -30,7 +29,7 @@ export const whatsappMessages = {
   heroOrder: jutsuWhatsappMessages.pedido,
   delivery: jutsuWhatsappMessages.pedido,
   pickup:
-    "Ola, vim pelo site e quero fazer um pedido para retirada no Jutsu Sushi.",
+    "Olá, vim pelo site e quero fazer um pedido para retirada no Jutsu Sushi.",
   visit: jutsuWhatsappMessages.visita,
   menu: jutsuWhatsappMessages.cardapio,
   location: jutsuWhatsappMessages.visita,
@@ -39,15 +38,15 @@ export const whatsappMessages = {
 
 export const navLinks = [
   { label: "Pedir", href: "#experiencias" },
-  { label: "Galerias", href: "#jutsu-de-perto" },
+  { label: "Jutsu", href: "#escolha-seu-jutsu" },
+  { label: "Galeria", href: "#galeria-cinematografica" },
   { label: "Destaques", href: "#destaques" },
-  { label: "Localizacao", href: "#localizacao" },
+  { label: "Localização", href: "#localizacao" },
 ];
 
 export const images = {
   logo: logoMedia.src,
   heroIntro: heroImage.src,
-  brandGallery: brandGalleryImages.map((item) => item.src),
   cinematicGallery: cinematicGalleryImages.map((item) => item.src),
   scrollExperienceBg: scrollExperienceMedia.background.src,
   scrollMainVideo: scrollExperienceMedia.video,

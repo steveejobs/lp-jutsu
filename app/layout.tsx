@@ -5,9 +5,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(JUTSU_CONFIG.fullSiteUrl),
-  title: "Jutsu Sushi | Culinaria Japonesa em Araguaina",
+  title: "Jutsu Sushi | Culinária Japonesa em Araguaína",
   description:
-    "Peca pelo WhatsApp, veja a localizacao e conheca o Jutsu Sushi em Araguaina. Culinaria japonesa autentica com excelente custo-beneficio.",
+    "Peça pelo WhatsApp, veja a localização e conheça o Jutsu Sushi em Araguaína. Culinária japonesa autêntica com excelente custo-benefício.",
   icons: {
     icon: [
       {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Jutsu Sushi",
     description:
-      "Culinaria japonesa autentica com entrega, sabor e excelente custo-beneficio em Araguaina.",
+      "Culinária japonesa autêntica com entrega, sabor e excelente custo-benefício em Araguaína.",
     url: JUTSU_CONFIG.fullSiteUrl,
     images: [
       {

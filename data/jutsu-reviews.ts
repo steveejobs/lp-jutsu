@@ -8,12 +8,12 @@ export const jutsuReviews = [
   {
     name: "Cliente Jutsu",
     source: "Depoimento",
-    text: "Sabor marcante, pedido pratico pelo WhatsApp e comida japonesa com preco justo.",
+    text: "Sabor marcante, pedido prático pelo WhatsApp e comida japonesa com preço justo.",
   },
   {
     name: "Cliente Jutsu",
     source: "Depoimento",
-    text: "Boa opcao para pedir a noite quando bate vontade de sushi em Araguaina.",
+    text: "Boa opção para pedir à noite quando bate vontade de sushi em Araguaína.",
   },
   {
     name: "Cliente Jutsu",
@@ -23,26 +23,26 @@ export const jutsuReviews = [
   {
     name: "Cliente Jutsu",
     source: "Depoimento",
-    text: "Atendimento direto, entrega pratica e proposta japonesa bem acessivel.",
+    text: "Atendimento direto, entrega prática e proposta japonesa bem acessível.",
   },
   {
     name: "Cliente Jutsu",
     source: "Depoimento",
-    text: "Lugar facil de reconhecer e uma boa escolha para jantar sem complicar.",
+    text: "Lugar fácil de reconhecer e uma boa escolha para jantar sem complicar.",
   },
   {
     name: "Cliente Jutsu",
     source: "Depoimento",
-    text: "Gostei do custo-beneficio e da apresentacao dos pratos.",
+    text: "Gostei do custo-benefício e da apresentação dos pratos.",
   },
   {
     name: "Cliente Jutsu",
     source: "Depoimento",
-    text: "Quando quero japones a noite, o Jutsu entra facil na lista.",
+    text: "Quando quero japonês à noite, o Jutsu entra fácil na lista.",
   },
   {
     name: "Cliente Jutsu",
     source: "Depoimento",
-    text: "Pedido rapido, sabor bom e visual caprichado.",
+    text: "Pedido rápido, sabor bom e visual caprichado.",
   },
 ] satisfies JutsuReview[];
