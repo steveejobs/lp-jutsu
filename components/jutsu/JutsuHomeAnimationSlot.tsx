@@ -22,7 +22,7 @@ export function JutsuHomeAnimationSlot({
             alt="Preparo de sushi no Jutsu Sushi"
             fill
             priority
-            quality={96}
+            quality={92}
             sizes="100vw"
             className="jutsu-home-slot-image object-cover object-[58%_50%] brightness-[0.86] contrast-[1.12] saturate-[1.1] md:object-[60%_50%]"
           />

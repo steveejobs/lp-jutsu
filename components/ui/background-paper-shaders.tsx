@@ -50,10 +50,12 @@ export function ShaderPlane({
   position,
   color1 = "#ff5722",
   color2 = "#ffffff",
+  size = [8.5, 5.2],
 }: {
   position: [number, number, number];
   color1?: string;
   color2?: string;
+  size?: [number, number];
 }) {
   const mesh = useRef<THREE.Mesh<THREE.PlaneGeometry, THREE.ShaderMaterial>>(
     null,
@@ -77,13 +79,14 @@ export function ShaderPlane({
 
   return (
     <mesh ref={mesh} position={position}>
-      <planeGeometry args={[2.65, 2.65, 32, 32]} />
+      <planeGeometry args={[size[0], size[1], 64, 64]} />
       <shaderMaterial
         uniforms={uniforms}
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
         transparent
         depthWrite={false}
+        blending={THREE.AdditiveBlending}
         side={THREE.DoubleSide}
       />
     </mesh>
@@ -128,28 +131,36 @@ export function BackgroundPaperShaders({
 }: {
   reducedMotion?: boolean;
 }) {
-  if (reducedMotion) return null;
-
   return (
-    <Canvas
-      className="h-full w-full"
-      camera={{ position: [0, 0, 5.4], fov: 46 }}
-      dpr={[1, 1.35]}
-      gl={{ alpha: true, antialias: false, powerPreference: "low-power" }}
-    >
-      <group position={[0.95, -0.12, 0]} rotation={[0, 0, -0.16]}>
-        <ShaderPlane
-          position={[0.35, 0.2, 0]}
-          color1="#d83a24"
-          color2="#f2f2f2"
-        />
-        <ShaderPlane
-          position={[1.25, -0.62, -0.28]}
-          color1="#3a211b"
-          color2="#ff8936"
-        />
-        <EnergyRing radius={1.32} position={[0.58, -0.08, 0.05]} />
-      </group>
-    </Canvas>
+    <div className="background-paper-shaders-scene relative h-full w-full overflow-hidden">
+      <div className="background-paper-shaders-scene__field absolute inset-[-12%]" />
+      <div className="background-paper-shaders-scene__cut absolute right-[-8%] top-[18%] h-[68%] w-[58%]" />
+      {!reducedMotion ? (
+        <Canvas
+          className="absolute inset-0 h-full w-full"
+          orthographic
+          camera={{ position: [0, 0, 5], zoom: 82 }}
+          dpr={[1, 1.35]}
+          style={{ display: "block", height: "100%", width: "100%" }}
+          gl={{ alpha: true, antialias: false, powerPreference: "low-power" }}
+        >
+          <group position={[1.15, -0.08, 0]} rotation={[0, 0, -0.09]}>
+            <ShaderPlane
+              position={[0, 0, 0]}
+              color1="#d83a24"
+              color2="#f2f2f2"
+              size={[9.2, 5.8]}
+            />
+            <ShaderPlane
+              position={[1.2, -0.68, -0.18]}
+              color1="#7a2a1b"
+              color2="#ff8936"
+              size={[6.8, 4.2]}
+            />
+            <EnergyRing radius={2.18} position={[0.65, -0.08, 0.05]} />
+          </group>
+        </Canvas>
+      ) : null}
+    </div>
   );
 }

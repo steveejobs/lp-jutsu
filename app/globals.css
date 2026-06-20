@@ -314,8 +314,63 @@ img {
   will-change: opacity, transform;
 }
 
+.background-paper-shaders-scene {
+  background:
+    radial-gradient(circle at 74% 42%, rgba(255, 255, 255, 0.22), transparent 18%),
+    radial-gradient(circle at 66% 54%, rgba(255, 137, 54, 0.36), transparent 28%),
+    radial-gradient(circle at 46% 48%, rgba(216, 58, 36, 0.32), transparent 32%),
+    #050505;
+}
+
+.background-paper-shaders-scene__field {
+  background:
+    linear-gradient(115deg, transparent 0 34%, rgba(216, 58, 36, 0.34) 45%, rgba(255, 137, 54, 0.18) 54%, transparent 68%),
+    radial-gradient(circle at 72% 44%, rgba(255, 255, 255, 0.26), transparent 14%),
+    radial-gradient(circle at 57% 55%, rgba(216, 58, 36, 0.38), transparent 27%),
+    radial-gradient(circle at 86% 34%, rgba(255, 137, 54, 0.22), transparent 22%);
+  filter: blur(26px);
+  opacity: 0.88;
+  transform: translate3d(2%, 0, 0) scale(1.04);
+  animation: backgroundPaperShaderField 9s ease-in-out infinite alternate;
+  will-change: opacity, transform;
+}
+
+.background-paper-shaders-scene__cut {
+  background:
+    linear-gradient(118deg, transparent 0 42%, rgba(255, 255, 255, 0.18) 48%, rgba(255, 111, 48, 0.4) 52%, transparent 62%),
+    radial-gradient(ellipse at center, rgba(255, 137, 54, 0.2), transparent 58%);
+  filter: blur(14px);
+  opacity: 0.74;
+  transform: rotate(-8deg);
+  animation: backgroundPaperShaderCut 6.8s ease-in-out infinite alternate;
+  will-change: opacity, transform;
+}
+
 .jutsu-home-animation__warm-glow {
   animation: jutsuHomeAnimationWarmGlow 7800ms ease-in-out infinite alternate;
+  will-change: opacity, transform;
+}
+
+.jutsu-home-animation__visible-shader {
+  background:
+    linear-gradient(112deg, transparent 0 46%, rgba(255, 255, 255, 0.16) 51%, rgba(255, 111, 48, 0.44) 56%, transparent 68%),
+    radial-gradient(circle at 72% 42%, rgba(255, 255, 255, 0.2), transparent 15%),
+    radial-gradient(circle at 64% 50%, rgba(255, 137, 54, 0.34), transparent 27%),
+    radial-gradient(circle at 52% 56%, rgba(216, 58, 36, 0.28), transparent 31%);
+  filter: blur(10px);
+  opacity: 0.78;
+  transform: translate3d(0, 0, 0) scale(1.02);
+  animation: jutsuHomeVisibleShader 8s ease-in-out infinite alternate;
+  will-change: opacity, transform;
+}
+
+.jutsu-home-animation__foreground-shader {
+  background:
+    linear-gradient(112deg, transparent 0 48%, rgba(216, 58, 36, 0.1) 51%, rgba(216, 58, 36, 0.44) 55%, rgba(255, 137, 54, 0.28) 59%, rgba(255, 255, 255, 0.12) 62%, transparent 69%),
+    radial-gradient(ellipse at 76% 42%, rgba(255, 137, 54, 0.2), transparent 24%),
+    radial-gradient(ellipse at 61% 62%, rgba(216, 58, 36, 0.18), transparent 22%);
+  filter: blur(8px);
+  animation: jutsuHomeForegroundShader 7s ease-in-out infinite alternate;
   will-change: opacity, transform;
 }
 
@@ -455,6 +510,28 @@ img {
   }
 }
 
+@keyframes backgroundPaperShaderField {
+  from {
+    opacity: 0.7;
+    transform: translate3d(0, 0, 0) scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(-3%, 2%, 0) scale(1.09);
+  }
+}
+
+@keyframes backgroundPaperShaderCut {
+  from {
+    opacity: 0.46;
+    transform: rotate(-10deg) translate3d(3%, -2%, 0) scale(0.96);
+  }
+  to {
+    opacity: 0.82;
+    transform: rotate(-7deg) translate3d(-2%, 2%, 0) scale(1.04);
+  }
+}
+
 @keyframes jutsuHomeAnimationWarmGlow {
   from {
     opacity: 0.42;
@@ -463,6 +540,28 @@ img {
   to {
     opacity: 0.78;
     transform: translate3d(-3%, 2%, 0) scale(1.08);
+  }
+}
+
+@keyframes jutsuHomeVisibleShader {
+  from {
+    opacity: 0.58;
+    transform: translate3d(2%, -1%, 0) scale(1.01);
+  }
+  to {
+    opacity: 0.9;
+    transform: translate3d(-2%, 2%, 0) scale(1.07);
+  }
+}
+
+@keyframes jutsuHomeForegroundShader {
+  from {
+    opacity: 0.64;
+    transform: translate3d(1%, -1%, 0) scale(1.01);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(-2%, 1.5%, 0) scale(1.05);
   }
 }
 
@@ -1050,6 +1149,10 @@ img {
   .jutsu-home-slot-image,
   .jutsu-home-animation__image,
   .jutsu-home-animation__paper-shader,
+  .background-paper-shaders-scene__field,
+  .background-paper-shaders-scene__cut,
+  .jutsu-home-animation__visible-shader,
+  .jutsu-home-animation__foreground-shader,
   .jutsu-home-animation__warm-glow,
   .jutsu-home-animation__cut,
   .jutsu-home-animation__logo,
