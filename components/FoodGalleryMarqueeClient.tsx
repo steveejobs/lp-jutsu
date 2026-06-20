@@ -88,7 +88,12 @@ function GalleryLoop({
           />
         ))}
       </div>
-      <div className="flex gap-4" aria-hidden="true" role="presentation">
+      <div
+        className="flex gap-4"
+        aria-hidden="true"
+        inert
+        role="presentation"
+      >
         {items.map((item, index) => (
           <GalleryCard
             key={`${item.src}-${direction}-loop-${index}`}

@@ -6,6 +6,7 @@ import {
   images,
   whatsappMessages,
 } from "@/lib/site";
+import { JutsuHomeAnimation } from "./JutsuHomeAnimation";
 import { JutsuHomeAnimationSlot } from "./JutsuHomeAnimationSlot";
 
 export function JutsuHero() {
@@ -15,7 +16,9 @@ export function JutsuHero() {
       className="jutsu-home-hero relative isolate min-h-[100svh] overflow-hidden bg-[#090909] pt-[74px] text-white md:pt-[86px]"
       aria-label="Jutsu Sushi"
     >
-      <JutsuHomeAnimationSlot className="absolute inset-0" />
+      <JutsuHomeAnimationSlot className="absolute inset-0">
+        <JutsuHomeAnimation />
+      </JutsuHomeAnimationSlot>
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_28%,rgba(216,58,36,0.16),transparent_28%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.92)_0%,rgba(8,8,8,0.7)_38%,rgba(8,8,8,0.18)_100%)] md:bg-[linear-gradient(90deg,rgba(5,5,5,0.88)_0%,rgba(8,8,8,0.56)_42%,rgba(8,8,8,0.08)_100%)]" />

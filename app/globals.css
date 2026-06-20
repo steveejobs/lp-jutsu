@@ -302,6 +302,42 @@ img {
   will-change: transform;
 }
 
+.jutsu-home-animation__image {
+  animation:
+    jutsuHomeAnimationImageIn 1400ms cubic-bezier(0.22, 1, 0.36, 1) both,
+    jutsuHomeAnimationSlowScale 22s ease-in-out 1400ms infinite alternate;
+  will-change: transform;
+}
+
+.jutsu-home-animation__shader {
+  animation: jutsuHomeAnimationAtmosphere 9400ms ease-in-out infinite alternate;
+  will-change: opacity, transform;
+}
+
+.jutsu-home-animation__warm-glow {
+  animation: jutsuHomeAnimationWarmGlow 7800ms ease-in-out infinite alternate;
+  will-change: opacity, transform;
+}
+
+.jutsu-home-animation__cut {
+  transform-origin: right center;
+  animation: jutsuHomeAnimationCut 5200ms cubic-bezier(0.22, 1, 0.36, 1)
+    infinite;
+  will-change: opacity, transform;
+}
+
+.jutsu-home-animation__cut--thin {
+  animation-delay: 900ms;
+  animation-duration: 6800ms;
+}
+
+.jutsu-home-animation__logo {
+  transform: translate3d(0, 10px, 0) scale(0.94);
+  animation: jutsuHomeAnimationLogoIn 1100ms cubic-bezier(0.22, 1, 0.36, 1)
+    260ms forwards;
+  will-change: opacity, transform;
+}
+
 .jutsu-home-hero-grid {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
@@ -385,6 +421,71 @@ img {
   }
   to {
     transform: scale(1.07) translate3d(-1.2%, -0.8%, 0);
+  }
+}
+
+@keyframes jutsuHomeAnimationImageIn {
+  from {
+    opacity: 0;
+    transform: scale(1.075);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.025);
+  }
+}
+
+@keyframes jutsuHomeAnimationSlowScale {
+  from {
+    transform: scale(1.025) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.075) translate3d(-1%, -0.7%, 0);
+  }
+}
+
+@keyframes jutsuHomeAnimationAtmosphere {
+  from {
+    opacity: 0.46;
+    transform: scale(1.01);
+  }
+  to {
+    opacity: 0.66;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes jutsuHomeAnimationWarmGlow {
+  from {
+    opacity: 0.42;
+    transform: translate3d(0, 0, 0) scale(0.94);
+  }
+  to {
+    opacity: 0.78;
+    transform: translate3d(-3%, 2%, 0) scale(1.08);
+  }
+}
+
+@keyframes jutsuHomeAnimationCut {
+  0% {
+    opacity: 0;
+    transform: rotate(-11deg) scaleX(0.28) translate3d(5%, 0, 0);
+  }
+  18%,
+  54% {
+    opacity: 0.86;
+    transform: rotate(-11deg) scaleX(1) translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-11deg) scaleX(0.42) translate3d(-4%, 0, 0);
+  }
+}
+
+@keyframes jutsuHomeAnimationLogoIn {
+  to {
+    opacity: 0.35;
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
@@ -947,6 +1048,11 @@ img {
   }
 
   .jutsu-home-slot-image,
+  .jutsu-home-animation__image,
+  .jutsu-home-animation__shader,
+  .jutsu-home-animation__warm-glow,
+  .jutsu-home-animation__cut,
+  .jutsu-home-animation__logo,
   .jutsu-home-hero-logo,
   .jutsu-home-hero-content > p,
   .jutsu-home-hero-content h1,

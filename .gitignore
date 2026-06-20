@@ -2,3 +2,5 @@
 node_modules
 *.log
 out
+.tmp
+tsconfig.tsbuildinfo

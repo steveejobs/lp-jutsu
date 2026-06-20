@@ -15,7 +15,6 @@ export function JutsuHomeAnimationSlot({
     <div
       className={`jutsu-home-animation-slot relative min-h-[520px] overflow-hidden bg-neutral-950 md:min-h-full ${className}`}
     >
-      {/* TODO: inserir aqui o código da animação customizada da home Jutsu */}
       {children ?? (
         <div className="absolute inset-0">
           <Image

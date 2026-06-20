@@ -10,7 +10,16 @@ type InstagramTestimonialsMarqueeProps = {
 function ReviewCard({ review }: { review: JutsuReview }) {
   return (
     <article className="h-[136px] w-[280px] shrink-0 rounded-[22px] border border-black/10 bg-white p-4 shadow-[0_10px_24px_rgba(16,16,16,0.055)]">
-      <span className="block h-1.5 w-8 rounded-full bg-[var(--jutsu-red)]" />
+      <div
+        className="flex items-center gap-0.5 text-[var(--jutsu-red)]"
+        aria-label="5 estrelas"
+      >
+        {Array.from({ length: 5 }).map((_, index) => (
+          <span key={index} aria-hidden="true" className="text-sm leading-none">
+            {"\u2605"}
+          </span>
+        ))}
+      </div>
       <p className="mt-3 line-clamp-3 text-sm font-bold leading-6 text-neutral-700">
         {review.text}
       </p>
