@@ -309,7 +309,7 @@ img {
   will-change: transform;
 }
 
-.jutsu-home-animation__shader {
+.jutsu-home-animation__paper-shader {
   animation: jutsuHomeAnimationAtmosphere 9400ms ease-in-out infinite alternate;
   will-change: opacity, transform;
 }
@@ -1049,7 +1049,7 @@ img {
 
   .jutsu-home-slot-image,
   .jutsu-home-animation__image,
-  .jutsu-home-animation__shader,
+  .jutsu-home-animation__paper-shader,
   .jutsu-home-animation__warm-glow,
   .jutsu-home-animation__cut,
   .jutsu-home-animation__logo,
