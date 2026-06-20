@@ -25,16 +25,18 @@ const cinematicCategories = [
   "Desejo",
 ];
 
+const cinematicGalleryItems = Array.from(
+  new Map(cinematicGalleryImages.map((item) => [item.src, item])).values(),
+).slice(0, 12);
+
 function GalleryCard({
   item,
   index,
   compact = false,
-  variant,
 }: {
   item: GalleryItem;
   index: number;
   compact?: boolean;
-  variant?: "cinematic";
 }) {
   const shape = compact
     ? "h-[220px] w-[180px]"
@@ -67,13 +69,11 @@ function GalleryLoop({
   direction,
   indexOffset = 0,
   compact = false,
-  variant,
 }: {
   items: GalleryItem[];
   direction: "left" | "right";
   indexOffset?: number;
   compact?: boolean;
-  variant?: "cinematic";
 }) {
   return (
     <div
@@ -90,7 +90,6 @@ function GalleryLoop({
             item={item}
             index={index + indexOffset}
             compact={compact}
-            variant={variant}
           />
         ))}
       </div>
@@ -101,7 +100,6 @@ function GalleryLoop({
             item={{ ...item, alt: "" }}
             index={index + indexOffset}
             compact={compact}
-            variant={variant}
           />
         ))}
       </div>
@@ -146,22 +144,12 @@ function GallerySection({
 
       <div className="mt-8 md:mt-10">
         <div className="overflow-hidden md:hidden">
-          <GalleryLoop
-            items={items}
-            direction="left"
-            compact
-            variant="cinematic"
-          />
+          <GalleryLoop items={items} direction="left" compact />
         </div>
 
         <div className="hidden space-y-4 md:block">
-          <GalleryLoop items={firstRow} direction="left" variant="cinematic" />
-          <GalleryLoop
-            items={secondRow}
-            direction="right"
-            indexOffset={2}
-            variant="cinematic"
-          />
+          <GalleryLoop items={firstRow} direction="left" />
+          <GalleryLoop items={secondRow} direction="right" indexOffset={2} />
         </div>
       </div>
 
@@ -194,7 +182,7 @@ export function CinematicGallerySection() {
       eyebrow="Galeria cinematográfica"
       title="Cortes, texturas e desejo."
       copy="Close-ups, brilho e textura para abrir o apetite antes do pedido."
-      items={cinematicGalleryImages}
+      items={cinematicGalleryItems}
       categories={cinematicCategories}
     />
   );

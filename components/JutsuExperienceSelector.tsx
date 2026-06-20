@@ -37,12 +37,12 @@ export function JutsuExperienceSelector() {
           </p>
         </div>
 
-        <div className="mt-8 overflow-hidden rounded-lg border border-white/10 bg-[#141414] shadow-[0_28px_90px_rgba(0,0,0,0.32)] md:mt-10">
-          <div className="grid md:min-h-[560px] md:grid-cols-[330px_1fr]">
+        <div className="mt-8 overflow-hidden rounded-lg border border-white/10 bg-[#111111] shadow-[0_32px_100px_rgba(0,0,0,0.38)] md:mt-10">
+          <div className="grid md:min-h-[620px] md:grid-cols-[290px_1fr] lg:grid-cols-[320px_1fr]">
             <div className="border-b border-white/10 p-4 md:border-b-0 md:border-r md:p-5">
               <div className="no-scrollbar flex gap-2 overflow-x-auto md:relative md:grid md:h-full md:grid-rows-5 md:gap-0 md:overflow-visible">
                 <span
-                  className="pointer-events-none absolute left-0 hidden w-1 rounded-full bg-[linear-gradient(180deg,var(--jutsu-red),#ff8a3d)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:block"
+                  className="pointer-events-none absolute left-0 hidden w-1.5 rounded-full bg-[linear-gradient(180deg,var(--jutsu-red),#ff8a3d)] shadow-[0_0_24px_rgba(216,58,36,0.5)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:block"
                   style={{
                     height: "20%",
                     transform: `translateY(${activeIndex * 100}%)`,
@@ -57,7 +57,7 @@ export function JutsuExperienceSelector() {
                       onClick={() => setActiveIndex(index)}
                       className={`relative shrink-0 rounded-full border px-4 py-3 text-left text-sm font-black transition duration-300 md:flex md:h-full md:w-full md:items-center md:rounded-none md:border-0 md:border-b md:border-white/8 md:py-0 md:pl-7 md:pr-4 md:text-base ${
                         isActive
-                          ? "border-[var(--jutsu-red)] bg-[var(--jutsu-red)] text-white shadow-[0_12px_30px_rgba(216,58,36,0.2)] md:bg-white/[0.06] md:shadow-none"
+                          ? "border-[var(--jutsu-red)] bg-[var(--jutsu-red)] text-white shadow-[0_12px_30px_rgba(216,58,36,0.26)] md:bg-white/[0.08] md:text-white md:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]"
                           : "border-white/12 bg-white/[0.04] text-white/66 hover:border-white/28 hover:text-white md:bg-transparent"
                       }`}
                       aria-pressed={isActive}
@@ -72,7 +72,7 @@ export function JutsuExperienceSelector() {
               </div>
             </div>
 
-            <div className="relative grid gap-0 md:grid-cols-[1.02fr_0.98fr]">
+            <div className="relative grid gap-0 md:grid-cols-[1.45fr_0.55fr]">
               <div className="relative aspect-[4/3] overflow-hidden bg-black md:aspect-auto md:min-h-full">
                 <Image
                   key={activeItem.image.src}
@@ -82,14 +82,14 @@ export function JutsuExperienceSelector() {
                   sizes="(max-width: 768px) 92vw, 48vw"
                   quality={86}
                   loading="lazy"
-                  className="animate-[jutsuImageIn_560ms_cubic-bezier(0.22,1,0.36,1)_both] object-cover"
+                  className="animate-[jutsuImageIn_600ms_cubic-bezier(0.22,1,0.36,1)_both] object-cover"
                 />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_62%_40%,transparent,rgba(0,0,0,0.42)),linear-gradient(180deg,transparent,rgba(0,0,0,0.36))]" />
                 <div className="absolute bottom-0 left-0 h-24 w-full bg-gradient-to-t from-[#141414] to-transparent md:hidden" />
               </div>
 
-              <div className="relative flex items-end overflow-hidden p-5 md:min-h-0 md:p-8 lg:p-10">
-                <div className="absolute right-0 top-0 h-full w-20 skew-x-[-15deg] bg-[linear-gradient(180deg,rgba(216,58,36,0.34),rgba(255,138,61,0.08),transparent)] opacity-70" />
+              <div className="relative flex items-end overflow-hidden border-t border-white/10 p-5 md:min-h-0 md:border-l md:border-t-0 md:p-7 lg:p-9">
+                <div className="absolute right-0 top-0 h-full w-24 skew-x-[-15deg] bg-[linear-gradient(180deg,rgba(216,58,36,0.42),rgba(255,138,61,0.1),transparent)] opacity-80" />
                 <div
                   key={activeItem.key}
                   className="relative z-10 animate-[jutsuCopyIn_480ms_cubic-bezier(0.22,1,0.36,1)_both]"
@@ -107,7 +107,7 @@ export function JutsuExperienceSelector() {
                     href={activeHref}
                     target="_blank"
                     rel="noreferrer"
-                    className="btn btn-primary mt-7"
+                    className="btn btn-primary mt-7 shadow-[0_18px_44px_rgba(216,58,36,0.28)]"
                   >
                     {activeItem.cta}
                   </a>
