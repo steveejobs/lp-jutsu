@@ -2,8 +2,7 @@ export const JUTSU_CONFIG = {
   name: "Jutsu Sushi",
   instagramHandle: "@sushi.jutsu",
   instagramUrl: "https://www.instagram.com/sushi.jutsu/",
-  whatsappUrl:
-    "https://api.whatsapp.com/send/?phone=5563984184747&text&type=phone_number&app_absent=0&utm_source=ig",
+  whatsappUrl: "https://api.whatsapp.com/send/?phone=5563984184747",
   googleMapsUrl: "https://maps.app.goo.gl/vnF7z5Bk9FA6Bo4X6",
   googleRating: "4,3",
   googleReviews: "23",

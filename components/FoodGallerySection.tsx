@@ -33,33 +33,36 @@ function GalleryCard({
   item,
   index,
   compact = false,
+  decorative = false,
 }: {
   item: GalleryItem;
   index: number;
   compact?: boolean;
+  decorative?: boolean;
 }) {
   const shape = compact
-    ? "h-[220px] w-[180px]"
+    ? "h-[238px] w-[190px]"
     : index % 5 === 0
-      ? "h-[250px] w-[360px]"
+      ? "h-[270px] w-[390px]"
       : index % 3 === 0
-        ? "h-[250px] w-[300px]"
-        : "h-[250px] w-[250px]";
+        ? "h-[270px] w-[320px]"
+        : "h-[270px] w-[270px]";
 
   return (
     <figure
-      className={`group relative shrink-0 overflow-hidden rounded-lg bg-neutral-950 shadow-[0_18px_42px_rgba(16,16,16,0.12)] ${shape}`}
+      aria-hidden={decorative ? "true" : undefined}
+      className={`group relative shrink-0 overflow-hidden rounded-lg bg-neutral-950 shadow-[0_18px_42px_rgba(0,0,0,0.24)] ${shape}`}
     >
       <Image
         src={item.src}
-        alt={item.alt}
+        alt={decorative ? "" : item.alt}
         fill
-        sizes="(max-width: 768px) 180px, 360px"
-        quality={82}
+        sizes="(max-width: 768px) 190px, 390px"
+        quality={86}
         loading="lazy"
         className="h-full w-full object-cover transition duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] md:group-hover:scale-[1.025]"
       />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,transparent,rgba(0,0,0,0.24))]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,transparent,rgba(0,0,0,0.22))]" />
     </figure>
   );
 }
@@ -86,7 +89,7 @@ function GalleryLoop({
       <div className="flex gap-4">
         {items.map((item, index) => (
           <GalleryCard
-            key={`${item.src}-${direction}`}
+            key={`${item.src}-${direction}-real`}
             item={item}
             index={index + indexOffset}
             compact={compact}
@@ -97,9 +100,10 @@ function GalleryLoop({
         {items.map((item, index) => (
           <GalleryCard
             key={`${item.src}-${direction}-loop`}
-            item={{ ...item, alt: "" }}
+            item={item}
             index={index + indexOffset}
             compact={compact}
+            decorative
           />
         ))}
       </div>
@@ -115,9 +119,13 @@ function GallerySection({
   items,
   categories,
 }: GallerySectionProps) {
-  const midpoint = Math.ceil(items.length / 2);
-  const firstRow = items.slice(0, midpoint);
-  const secondRow = items.slice(midpoint);
+  const uniqueImages = Array.from(
+    new Map(items.map((item) => [item.src, item])).values(),
+  ).slice(0, 12);
+  const midpoint = Math.ceil(uniqueImages.length / 2);
+  const rowOne = uniqueImages.slice(0, midpoint);
+  const rowTwo = uniqueImages.slice(midpoint);
+  const mobileRow = uniqueImages;
 
   return (
     <section
@@ -144,12 +152,14 @@ function GallerySection({
 
       <div className="mt-8 md:mt-10">
         <div className="overflow-hidden md:hidden">
-          <GalleryLoop items={items} direction="left" compact />
+          <GalleryLoop items={mobileRow} direction="left" compact />
         </div>
 
         <div className="hidden space-y-4 md:block">
-          <GalleryLoop items={firstRow} direction="left" />
-          <GalleryLoop items={secondRow} direction="right" indexOffset={2} />
+          <GalleryLoop items={rowOne} direction="left" />
+          {rowTwo.length > 0 ? (
+            <GalleryLoop items={rowTwo} direction="right" indexOffset={2} />
+          ) : null}
         </div>
       </div>
 

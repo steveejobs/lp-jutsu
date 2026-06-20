@@ -21,7 +21,6 @@ export function JutsuExperienceSelector() {
     >
       <div className="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(135deg,rgba(255,255,255,0.09)_1px,transparent_1px),linear-gradient(45deg,rgba(216,58,36,0.12)_1px,transparent_1px)] [background-size:42px_42px,96px_96px]" />
       <div className="absolute left-0 top-10 h-px w-32 origin-left animate-[lineSweep_5.2s_ease-in-out_infinite] bg-[linear-gradient(90deg,var(--jutsu-red),rgba(255,139,65,0))] md:w-64" />
-      <div className="absolute -right-24 top-28 h-64 w-64 rounded-full bg-[var(--jutsu-red)]/14 blur-3xl" />
 
       <div className="container-page relative z-10">
         <div className="grid gap-5 md:grid-cols-[0.9fr_1.1fr] md:items-end">
@@ -73,14 +72,14 @@ export function JutsuExperienceSelector() {
             </div>
 
             <div className="relative grid gap-0 md:grid-cols-[1.45fr_0.55fr]">
-              <div className="relative aspect-[4/3] overflow-hidden bg-black md:aspect-auto md:min-h-full">
+              <div className="relative h-[370px] overflow-hidden bg-black sm:h-[430px] md:h-auto md:min-h-full">
                 <Image
                   key={activeItem.image.src}
                   src={activeItem.image.src}
                   alt={activeItem.image.alt}
                   fill
-                  sizes="(max-width: 768px) 92vw, 48vw"
-                  quality={86}
+                  sizes="(max-width: 768px) 100vw, 54vw"
+                  quality={90}
                   loading="lazy"
                   className="animate-[jutsuImageIn_600ms_cubic-bezier(0.22,1,0.36,1)_both] object-cover"
                 />

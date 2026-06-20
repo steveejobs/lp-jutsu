@@ -249,7 +249,7 @@ export default function Home() {
                 fill
                 sizes="(max-width: 768px) 92vw, 52vw"
                 loading="lazy"
-                className="object-cover object-center"
+                className="object-cover object-[50%_46%]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/68 via-black/10 to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 rounded-lg bg-white/94 p-4 shadow-lg backdrop-blur">
