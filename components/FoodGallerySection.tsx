@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import {
   cinematicGalleryImages,
@@ -27,7 +25,7 @@ const cinematicCategories = [
 
 const cinematicGalleryItems = Array.from(
   new Map(cinematicGalleryImages.map((item) => [item.src, item])).values(),
-).slice(0, 12);
+).slice(0, 10);
 
 function GalleryCard({
   item,
@@ -47,6 +45,10 @@ function GalleryCard({
       : index % 3 === 0
         ? "h-[270px] w-[320px]"
         : "h-[270px] w-[270px]";
+  const descriptiveAlt =
+    item.alt.trim().toLowerCase() === "image"
+      ? "Prato do Jutsu Sushi"
+      : item.alt;
 
   return (
     <figure
@@ -55,7 +57,7 @@ function GalleryCard({
     >
       <Image
         src={item.src}
-        alt={decorative ? "" : item.alt}
+        alt={decorative ? "" : descriptiveAlt}
         fill
         sizes="(max-width: 768px) 190px, 390px"
         quality={86}
@@ -96,7 +98,7 @@ function GalleryLoop({
           />
         ))}
       </div>
-      <div className="flex gap-4" aria-hidden="true">
+      <div className="flex gap-4" aria-hidden="true" role="presentation">
         {items.map((item, index) => (
           <GalleryCard
             key={`${item.src}-${direction}-loop`}
@@ -121,7 +123,7 @@ function GallerySection({
 }: GallerySectionProps) {
   const uniqueImages = Array.from(
     new Map(items.map((item) => [item.src, item])).values(),
-  ).slice(0, 12);
+  ).slice(0, 10);
   const midpoint = Math.ceil(uniqueImages.length / 2);
   const rowOne = uniqueImages.slice(0, midpoint);
   const rowTwo = uniqueImages.slice(midpoint);
