@@ -9,7 +9,7 @@ type InstagramTestimonialsMarqueeProps = {
 
 function ReviewCard({ review }: { review: JutsuReview }) {
   return (
-    <article className="h-[136px] w-[280px] shrink-0 rounded-[22px] border border-black/10 bg-white p-4 shadow-[0_10px_24px_rgba(16,16,16,0.055)]">
+    <article className="min-h-[136px] w-[280px] shrink-0 rounded-[22px] border border-black/10 bg-white p-4 shadow-[0_10px_24px_rgba(16,16,16,0.055)]">
       <div
         className="flex items-center gap-0.5 text-[var(--jutsu-red)]"
         aria-label="5 estrelas"
@@ -20,12 +20,14 @@ function ReviewCard({ review }: { review: JutsuReview }) {
           </span>
         ))}
       </div>
-      <p className="mt-3 line-clamp-3 text-sm font-bold leading-6 text-neutral-700">
+      <p className="mt-3 whitespace-normal break-words text-sm font-bold leading-6 text-neutral-700">
         {review.text}
       </p>
-      <div className="mt-3 flex items-center justify-between gap-3 text-xs font-black text-neutral-950">
-        <span>{review.name}</span>
-        <span className="rounded-full bg-[#fff1ed] px-2.5 py-1 text-[var(--jutsu-red)]">
+      <div className="mt-3 flex min-w-0 items-center justify-between gap-3 text-xs font-black text-neutral-950">
+        <span className="min-w-0 whitespace-normal break-words">
+          {review.name}
+        </span>
+        <span className="shrink-0 rounded-full bg-[#fff1ed] px-2.5 py-1 text-[var(--jutsu-red)]">
           {review.source}
         </span>
       </div>

@@ -57,7 +57,8 @@ img {
     padding: 13px 20px;
     font-size: 0.9rem;
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.15;
+    text-align: center;
     transition:
       transform 300ms ease,
       background-color 300ms ease,
@@ -331,18 +332,48 @@ img {
 
 .background-paper-shaders-scene {
   background:
-    radial-gradient(circle at 74% 42%, rgba(255, 255, 255, 0.22), transparent 18%),
-    radial-gradient(circle at 66% 54%, rgba(255, 137, 54, 0.36), transparent 28%),
-    radial-gradient(circle at 46% 48%, rgba(216, 58, 36, 0.32), transparent 32%),
+    radial-gradient(
+      circle at 74% 42%,
+      rgba(255, 255, 255, 0.22),
+      transparent 18%
+    ),
+    radial-gradient(
+      circle at 66% 54%,
+      rgba(255, 137, 54, 0.36),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 46% 48%,
+      rgba(216, 58, 36, 0.32),
+      transparent 32%
+    ),
     #050505;
 }
 
 .background-paper-shaders-scene__field {
   background:
-    linear-gradient(115deg, transparent 0 34%, rgba(216, 58, 36, 0.34) 45%, rgba(255, 137, 54, 0.18) 54%, transparent 68%),
-    radial-gradient(circle at 72% 44%, rgba(255, 255, 255, 0.26), transparent 14%),
-    radial-gradient(circle at 57% 55%, rgba(216, 58, 36, 0.38), transparent 27%),
-    radial-gradient(circle at 86% 34%, rgba(255, 137, 54, 0.22), transparent 22%);
+    linear-gradient(
+      115deg,
+      transparent 0 34%,
+      rgba(216, 58, 36, 0.34) 45%,
+      rgba(255, 137, 54, 0.18) 54%,
+      transparent 68%
+    ),
+    radial-gradient(
+      circle at 72% 44%,
+      rgba(255, 255, 255, 0.26),
+      transparent 14%
+    ),
+    radial-gradient(
+      circle at 57% 55%,
+      rgba(216, 58, 36, 0.38),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 86% 34%,
+      rgba(255, 137, 54, 0.22),
+      transparent 22%
+    );
   filter: blur(26px);
   opacity: 0.88;
   transform: translate3d(2%, 0, 0) scale(1.04);
@@ -352,7 +383,13 @@ img {
 
 .background-paper-shaders-scene__cut {
   background:
-    linear-gradient(118deg, transparent 0 42%, rgba(255, 255, 255, 0.18) 48%, rgba(255, 111, 48, 0.4) 52%, transparent 62%),
+    linear-gradient(
+      118deg,
+      transparent 0 42%,
+      rgba(255, 255, 255, 0.18) 48%,
+      rgba(255, 111, 48, 0.4) 52%,
+      transparent 62%
+    ),
     radial-gradient(ellipse at center, rgba(255, 137, 54, 0.2), transparent 58%);
   filter: blur(14px);
   opacity: 0.74;
@@ -363,9 +400,22 @@ img {
 
 .jutsu-home-animation__grade {
   background:
-    radial-gradient(circle at 66% 47%, rgba(255, 137, 54, 0.24), transparent 30%),
-    radial-gradient(circle at 51% 63%, rgba(216, 58, 36, 0.16), transparent 35%),
-    linear-gradient(90deg, rgba(5, 5, 5, 0.08), rgba(28, 20, 16, 0.02) 54%, rgba(5, 5, 5, 0.02));
+    radial-gradient(
+      circle at 66% 47%,
+      rgba(255, 137, 54, 0.24),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 51% 63%,
+      rgba(216, 58, 36, 0.16),
+      transparent 35%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(5, 5, 5, 0.08),
+      rgba(28, 20, 16, 0.02) 54%,
+      rgba(5, 5, 5, 0.02)
+    );
   mix-blend-mode: overlay;
 }
 
@@ -380,7 +430,12 @@ img {
   top: 9%;
   width: min(64vw, 840px);
   height: 62vh;
-  background: radial-gradient(ellipse at center, rgba(255, 137, 54, 0.46), rgba(216, 58, 36, 0.26) 40%, transparent 72%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 137, 54, 0.46),
+    rgba(216, 58, 36, 0.26) 40%,
+    transparent 72%
+  );
   filter: blur(86px);
   opacity: 0.34;
   animation: jutsuHomeGlowLarge 10s ease-in-out infinite alternate;
@@ -391,14 +446,22 @@ img {
   bottom: 18%;
   width: min(38vw, 480px);
   height: 32vh;
-  background: radial-gradient(ellipse at center, rgba(255, 177, 92, 0.42), rgba(216, 58, 36, 0.24) 44%, transparent 74%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 177, 92, 0.42),
+    rgba(216, 58, 36, 0.24) 44%,
+    transparent 74%
+  );
   filter: blur(58px);
   opacity: 0.36;
   animation: jutsuHomeGlowFocus 8s ease-in-out infinite alternate;
 }
 
 .jutsu-home-animation__grain {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.09) 0.6px, transparent 0.6px);
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.09) 0.6px,
+    transparent 0.6px
+  );
   background-size: 3px 3px;
   mix-blend-mode: soft-light;
   opacity: 0.13;
@@ -409,7 +472,14 @@ img {
   height: 4px;
   max-width: 760px;
   border-radius: 999px;
-  background: linear-gradient(90deg, transparent, rgba(216, 58, 36, 0.06), rgba(216, 58, 36, 0.92), rgba(255, 137, 54, 0.82), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(216, 58, 36, 0.06),
+    rgba(216, 58, 36, 0.92),
+    rgba(255, 137, 54, 0.82),
+    transparent
+  );
   filter: blur(0.2px) drop-shadow(0 0 18px rgba(255, 111, 48, 0.5));
   transform-origin: right center;
   will-change: opacity, transform;
@@ -418,7 +488,8 @@ img {
 .jutsu-home-animation__cut--primary {
   bottom: 25%;
   width: 68vw;
-  animation: jutsuHomeCutPrimary 9s cubic-bezier(0.22, 1, 0.36, 1) 650ms infinite;
+  animation: jutsuHomeCutPrimary 9s cubic-bezier(0.22, 1, 0.36, 1) 650ms
+    infinite;
 }
 
 .jutsu-home-animation__cut--secondary {
@@ -426,7 +497,8 @@ img {
   width: 38vw;
   height: 2px;
   opacity: 0;
-  animation: jutsuHomeCutSecondary 12s cubic-bezier(0.22, 1, 0.36, 1) 1200ms infinite;
+  animation: jutsuHomeCutSecondary 12s cubic-bezier(0.22, 1, 0.36, 1) 1200ms
+    infinite;
 }
 
 .jutsu-home-animation__logo {

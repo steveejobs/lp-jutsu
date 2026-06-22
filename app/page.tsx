@@ -69,7 +69,7 @@ export default function Home() {
             threshold={0.35}
             className="container-page grid gap-4 md:grid-cols-[1fr_auto] md:items-center"
           >
-            <div>
+            <div className="min-w-0">
               <p className="text-lg font-black text-white">
                 <span className="text-[var(--jutsu-red)]">★★★★★</span>{" "}
                 {JUTSU_CONFIG.googleRating} no Google ·{" "}
@@ -106,17 +106,17 @@ export default function Home() {
                   threshold={0.22}
                   className="h-full"
                 >
-                  <article className="group h-full rounded-lg border border-white/10 bg-[#202020] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.16)] transition duration-300 hover:-translate-y-1 hover:border-[var(--jutsu-red)]/40 hover:bg-[#242424]">
+                  <article className="group flex h-full min-w-0 flex-col rounded-lg border border-white/10 bg-[#202020] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.16)] transition duration-300 hover:-translate-y-1 hover:border-[var(--jutsu-red)]/40 hover:bg-[#242424]">
                     <div className="mb-8 h-px w-16 bg-[var(--jutsu-red)] transition-all duration-500 group-hover:w-24" />
-                    <h3 className="text-2xl font-black text-white">
+                    <h3 className="whitespace-normal break-words text-2xl font-black leading-snug text-white">
                       {item.title}
                     </h3>
-                    <p className="mt-4 min-h-14 text-base font-semibold leading-7 text-white/68">
+                    <p className="mt-4 min-h-14 whitespace-normal break-words text-base font-semibold leading-7 text-white/68">
                       {item.text}
                     </p>
                     <a
                       href={item.href}
-                      className="btn btn-primary mt-6 w-full"
+                      className="btn btn-primary mt-auto w-full"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -150,12 +150,12 @@ export default function Home() {
                   threshold={0.2}
                   className="h-full"
                 >
-                  <article className="h-full rounded-lg border border-white/10 bg-[#1d1d1d] p-5 shadow-[0_16px_46px_rgba(0,0,0,0.18)]">
+                  <article className="h-full min-w-0 rounded-lg border border-white/10 bg-[#1d1d1d] p-5 shadow-[0_16px_46px_rgba(0,0,0,0.18)]">
                     <span className="block h-2 w-10 rounded-full bg-[var(--jutsu-red)]" />
-                    <h3 className="mt-6 text-xl font-black leading-tight text-white">
+                    <h3 className="mt-6 whitespace-normal break-words text-xl font-black leading-snug text-white">
                       {item.title}
                     </h3>
-                    <p className="mt-4 text-sm font-bold leading-6 text-white/64">
+                    <p className="mt-4 whitespace-normal break-words text-sm font-bold leading-6 text-white/64">
                       {item.text}
                     </p>
                   </article>
@@ -194,14 +194,14 @@ export default function Home() {
                 title="Estamos em Araguaína."
                 copy="Venha nos visitar ou peça direto pelo WhatsApp."
               />
-              <div className="mt-7 space-y-4 text-base leading-7 text-neutral-700">
+              <div className="mt-7 min-w-0 space-y-4 text-base leading-7 text-neutral-700">
                 <p>
                   <strong className="text-neutral-950">Endereço:</strong>{" "}
                   <a
                     href={GOOGLE_MAPS_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="font-bold text-[var(--jutsu-red)]"
+                    className="break-words font-bold text-[var(--jutsu-red)]"
                   >
                     {JUTSU_CONFIG.address}
                   </a>
@@ -216,13 +216,13 @@ export default function Home() {
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="font-bold text-[var(--jutsu-red)]"
+                    className="break-words font-bold text-[var(--jutsu-red)]"
                   >
                     {JUTSU_CONFIG.instagramHandle}
                   </a>
                 </p>
               </div>
-              <div className="mt-8 grid gap-3 sm:flex">
+              <div className="mt-8 grid gap-3 sm:flex sm:flex-wrap">
                 <a
                   href={GOOGLE_MAPS_URL}
                   className="btn btn-primary"
@@ -252,11 +252,11 @@ export default function Home() {
                 className="object-cover object-[50%_46%]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/68 via-black/10 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 rounded-lg bg-white/94 p-4 shadow-lg backdrop-blur">
-                <p className="text-sm font-black text-neutral-950">
+              <div className="absolute bottom-5 left-5 right-5 min-w-0 rounded-lg bg-white/94 p-4 shadow-lg backdrop-blur">
+                <p className="whitespace-normal break-words text-sm font-black leading-snug text-neutral-950">
                   Jutsu Sushi
                 </p>
-                <p className="mt-1 text-xs font-bold text-neutral-600">
+                <p className="mt-1 whitespace-normal break-words text-xs font-bold leading-snug text-neutral-600">
                   Fachada preta, faixa vermelha e entrada fácil de reconhecer.
                 </p>
               </div>
@@ -270,19 +270,21 @@ export default function Home() {
           threshold={0.35}
           className="container-page flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
         >
-          <div className="flex items-center gap-3">
-            <Image
-              src={images.logo}
-              alt=""
-              width={132}
-              height={58}
-              className="h-auto w-[112px] object-contain"
-            />
-            <p className="text-sm font-black text-neutral-950">
+          <div className="flex min-w-0 flex-wrap items-center gap-3">
+            <div className="relative flex w-[124px] shrink-0 items-center overflow-visible py-1">
+              <Image
+                src={images.logo}
+                alt=""
+                width={132}
+                height={58}
+                className="h-auto w-full object-contain"
+              />
+            </div>
+            <p className="min-w-0 whitespace-normal break-words text-sm font-black leading-snug text-neutral-950">
               Jutsu Sushi · Araguaína - TO
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-4 text-sm font-bold text-neutral-600">
+          <div className="flex min-w-0 flex-wrap items-center gap-4 text-sm font-bold leading-snug text-neutral-600">
             {navLinks.map((link) => (
               <a
                 key={link.href}

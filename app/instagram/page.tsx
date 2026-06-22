@@ -104,16 +104,16 @@ function LinkButton({
       href={href}
       target="_blank"
       rel="noreferrer"
-      className={`ig-rise flex min-h-[56px] items-center justify-between gap-4 rounded-[18px] border px-5 text-[0.95rem] font-black transition active:scale-[0.985] ${
+      className={`ig-rise flex min-h-[56px] items-center justify-between gap-4 rounded-[18px] border px-5 text-[0.95rem] font-black leading-snug transition active:scale-[0.985] ${
         primary
           ? "border-neutral-950 bg-neutral-950 text-white shadow-[0_16px_34px_rgba(16,16,16,0.16)]"
           : "border-black/10 bg-white text-neutral-950 shadow-[0_10px_26px_rgba(16,16,16,0.05)]"
       }`}
       style={{ "--ig-delay": `${delay}ms` } as React.CSSProperties}
     >
-      <span className="flex items-center gap-3">
+      <span className="flex min-w-0 items-center gap-3">
         <span
-          className={`flex h-9 w-9 items-center justify-center rounded-full ${
+          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${
             primary
               ? "bg-white/12 text-white"
               : "bg-[#fff1ed] text-[var(--jutsu-red)]"
@@ -121,9 +121,13 @@ function LinkButton({
         >
           {icon}
         </span>
-        {children}
+        <span className="min-w-0 whitespace-normal break-words">
+          {children}
+        </span>
       </span>
-      <IconArrow />
+      <span className="shrink-0">
+        <IconArrow />
+      </span>
     </a>
   );
 }
@@ -133,21 +137,23 @@ export default function InstagramLinksPage() {
     <main className="min-h-svh bg-[radial-gradient(circle_at_top,rgba(216,58,36,0.1),transparent_30%),linear-gradient(180deg,#fffdf9,#f2eee8)] px-4 py-5 text-neutral-950 sm:px-6 sm:py-8">
       <div className="mx-auto w-full max-w-[460px] overflow-hidden rounded-[28px] border border-black/8 bg-[#fffdf9]/94 px-4 py-5 shadow-[0_24px_70px_rgba(16,16,16,0.1)] backdrop-blur sm:px-5">
         <header className="ig-rise text-center">
-          <Image
-            src={logoMedia.src}
-            alt={logoMedia.alt}
-            width={210}
-            height={82}
-            priority
-            className="mx-auto h-auto w-[172px] object-contain"
-          />
-          <h1 className="mt-4 text-2xl font-black leading-tight">
+          <div className="relative mx-auto flex w-[184px] items-center justify-center overflow-visible py-1">
+            <Image
+              src={logoMedia.src}
+              alt={logoMedia.alt}
+              width={210}
+              height={82}
+              priority
+              className="h-auto w-full object-contain"
+            />
+          </div>
+          <h1 className="mt-4 whitespace-normal break-words text-2xl font-black leading-snug">
             Jutsu Sushi
           </h1>
-          <p className="mx-auto mt-2 max-w-[20rem] text-[1.68rem] font-black leading-[1.04]">
+          <p className="mx-auto mt-2 max-w-[20rem] whitespace-normal break-words text-[1.68rem] font-black leading-snug">
             O melhor da culinária japonesa em Araguaína.
           </p>
-          <p className="mt-4 inline-flex items-center justify-center rounded-full border border-black/10 bg-white px-3.5 py-2 text-xs font-black text-neutral-900 shadow-[0_10px_22px_rgba(16,16,16,0.04)]">
+          <p className="mt-4 inline-flex max-w-full flex-wrap items-center justify-center rounded-full border border-black/10 bg-white px-3.5 py-2 text-xs font-black leading-snug text-neutral-900 shadow-[0_10px_22px_rgba(16,16,16,0.04)]">
             <span className="mr-2 text-[var(--jutsu-red)]">★★★★★</span>
             {JUTSU_CONFIG.googleRating} no Google · {JUTSU_CONFIG.googleReviews}{" "}
             avaliações
@@ -156,7 +162,7 @@ export default function InstagramLinksPage() {
             {linkOptions.map((option) => (
               <span
                 key={option}
-                className="rounded-full border border-black/10 bg-white/78 px-3 py-1.5 text-[0.68rem] font-black uppercase text-neutral-700"
+                className="shrink-0 whitespace-nowrap rounded-full border border-black/10 bg-white/78 px-3 py-1.5 text-[0.68rem] font-black uppercase leading-snug text-neutral-700"
               >
                 {option}
               </span>
@@ -197,10 +203,10 @@ export default function InstagramLinksPage() {
           className="ig-rise mt-5 rounded-[24px] bg-neutral-950 p-4 text-white shadow-[0_14px_34px_rgba(16,16,16,0.12)]"
           style={{ "--ig-delay": "640ms" } as React.CSSProperties}
         >
-          <h2 className="text-2xl font-black leading-tight">
+          <h2 className="whitespace-normal break-words text-2xl font-black leading-snug">
             Estamos em Araguaína.
           </h2>
-          <div className="mt-3 space-y-2 text-sm font-bold leading-6 text-white/72">
+          <div className="mt-3 min-w-0 space-y-2 text-sm font-bold leading-6 text-white/72">
             <p>{ADDRESS}</p>
             <p>{OPENING_HOURS}</p>
           </div>
@@ -209,7 +215,7 @@ export default function InstagramLinksPage() {
               href={GOOGLE_MAPS_URL}
               target="_blank"
               rel="noreferrer"
-              className="flex min-h-11 items-center justify-center gap-2 rounded-full bg-white text-sm font-black text-neutral-950 active:scale-[0.985]"
+              className="flex min-h-11 min-w-0 items-center justify-center gap-2 rounded-full bg-white px-3 text-center text-sm font-black leading-snug text-neutral-950 active:scale-[0.985]"
             >
               <IconRoute />
               Abrir rota
@@ -218,7 +224,7 @@ export default function InstagramLinksPage() {
               href={whatsappLinks.localizacao}
               target="_blank"
               rel="noreferrer"
-              className="flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--jutsu-red)] text-sm font-black text-white active:scale-[0.985]"
+              className="flex min-h-11 min-w-0 items-center justify-center gap-2 rounded-full bg-[var(--jutsu-red)] px-3 text-center text-sm font-black leading-snug text-white active:scale-[0.985]"
             >
               <WhatsAppIcon className="h-4 w-4" />
               WhatsApp
