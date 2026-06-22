@@ -16,16 +16,15 @@ export function JutsuHero() {
       className="jutsu-home-hero relative isolate min-h-[100svh] overflow-hidden bg-[#090909] pt-[74px] text-white md:pt-[86px]"
       aria-label="Jutsu Sushi"
     >
-      <JutsuHomeAnimationSlot className="absolute inset-0">
+      <JutsuHomeAnimationSlot className="!absolute inset-0 z-0">
         <JutsuHomeAnimation />
       </JutsuHomeAnimationSlot>
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_28%,rgba(216,58,36,0.16),transparent_28%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.92)_0%,rgba(8,8,8,0.52)_40%,rgba(8,8,8,0.02)_100%)] md:bg-[linear-gradient(90deg,rgba(5,5,5,0.88)_0%,rgba(8,8,8,0.38)_42%,rgba(8,8,8,0)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.78)_0%,rgba(8,8,8,0.5)_42%,rgba(8,8,8,0.28)_100%)] md:bg-[linear-gradient(90deg,rgba(5,5,5,0.72)_0%,rgba(8,8,8,0.4)_42%,rgba(8,8,8,0.18)_100%)]" />
       <div className="absolute inset-0 jutsu-home-hero-grid opacity-[0.16]" />
       <div className="absolute left-[-12vw] top-[18%] h-[42vh] w-[34vw] rounded-full bg-[rgba(216,58,36,0.12)] blur-3xl" />
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#161616] via-[#090909]/78 to-transparent" />
-      <div className="jutsu-home-animation__foreground-shader pointer-events-none absolute inset-0 z-[1] opacity-100 mix-blend-screen" />
 
       <div className="container-page relative z-10 flex min-h-[calc(100svh-74px)] items-end pb-32 pt-10 md:min-h-[calc(100svh-86px)] md:items-center md:pb-28">
         <div className="jutsu-home-hero-content max-w-[760px]">

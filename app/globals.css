@@ -295,6 +295,11 @@ img {
   mix-blend-mode: soft-light;
 }
 
+.jutsu-home-animation-slot,
+.jutsu-home-animation {
+  min-height: 100svh;
+}
+
 .jutsu-home-slot-image {
   animation:
     jutsuHomeSlotImage 1400ms cubic-bezier(0.22, 1, 0.36, 1) both,
@@ -302,15 +307,25 @@ img {
   will-change: transform;
 }
 
-.jutsu-home-animation__image {
+.jutsu-home-animation {
+  isolation: isolate;
+}
+
+.jutsu-home-animation__image-bg {
+  background-repeat: no-repeat;
+  min-height: 100svh;
+  width: 100%;
+  filter: contrast(1.18) saturate(1.2) brightness(0.98);
+  transform-origin: center;
   animation:
-    jutsuHomeAnimationImageIn 1400ms cubic-bezier(0.22, 1, 0.36, 1) both,
-    jutsuHomeAnimationSlowScale 22s ease-in-out 1400ms infinite alternate;
-  will-change: transform;
+    jutsuHomeAnimationImageIn 900ms cubic-bezier(0.22, 1, 0.36, 1) both,
+    jutsuHeroDrift 14s ease-in-out 800ms infinite alternate;
+  will-change: opacity, transform;
 }
 
 .jutsu-home-animation__paper-shader {
-  animation: jutsuHomeAnimationAtmosphere 9400ms ease-in-out infinite alternate;
+  mix-blend-mode: screen;
+  animation: jutsuHomeAnimationAtmosphere 10s ease-in-out infinite alternate;
   will-change: opacity, transform;
 }
 
@@ -346,44 +361,72 @@ img {
   will-change: opacity, transform;
 }
 
-.jutsu-home-animation__warm-glow {
-  animation: jutsuHomeAnimationWarmGlow 7800ms ease-in-out infinite alternate;
+.jutsu-home-animation__grade {
+  background:
+    radial-gradient(circle at 66% 47%, rgba(255, 137, 54, 0.24), transparent 30%),
+    radial-gradient(circle at 51% 63%, rgba(216, 58, 36, 0.16), transparent 35%),
+    linear-gradient(90deg, rgba(5, 5, 5, 0.08), rgba(28, 20, 16, 0.02) 54%, rgba(5, 5, 5, 0.02));
+  mix-blend-mode: overlay;
+}
+
+.jutsu-home-animation__glow {
+  border-radius: 999px;
+  mix-blend-mode: screen;
   will-change: opacity, transform;
 }
 
-.jutsu-home-animation__visible-shader {
-  background:
-    linear-gradient(112deg, transparent 0 46%, rgba(255, 255, 255, 0.16) 51%, rgba(255, 111, 48, 0.44) 56%, transparent 68%),
-    radial-gradient(circle at 72% 42%, rgba(255, 255, 255, 0.2), transparent 15%),
-    radial-gradient(circle at 64% 50%, rgba(255, 137, 54, 0.34), transparent 27%),
-    radial-gradient(circle at 52% 56%, rgba(216, 58, 36, 0.28), transparent 31%);
-  filter: blur(10px);
-  opacity: 0.78;
-  transform: translate3d(0, 0, 0) scale(1.02);
-  animation: jutsuHomeVisibleShader 8s ease-in-out infinite alternate;
-  will-change: opacity, transform;
+.jutsu-home-animation__glow--large {
+  right: 2%;
+  top: 9%;
+  width: min(64vw, 840px);
+  height: 62vh;
+  background: radial-gradient(ellipse at center, rgba(255, 137, 54, 0.46), rgba(216, 58, 36, 0.26) 40%, transparent 72%);
+  filter: blur(86px);
+  opacity: 0.34;
+  animation: jutsuHomeGlowLarge 10s ease-in-out infinite alternate;
 }
 
-.jutsu-home-animation__foreground-shader {
-  background:
-    linear-gradient(112deg, transparent 0 48%, rgba(216, 58, 36, 0.1) 51%, rgba(216, 58, 36, 0.44) 55%, rgba(255, 137, 54, 0.28) 59%, rgba(255, 255, 255, 0.12) 62%, transparent 69%),
-    radial-gradient(ellipse at 76% 42%, rgba(255, 137, 54, 0.2), transparent 24%),
-    radial-gradient(ellipse at 61% 62%, rgba(216, 58, 36, 0.18), transparent 22%);
-  filter: blur(8px);
-  animation: jutsuHomeForegroundShader 7s ease-in-out infinite alternate;
-  will-change: opacity, transform;
+.jutsu-home-animation__glow--focus {
+  right: 20%;
+  bottom: 18%;
+  width: min(38vw, 480px);
+  height: 32vh;
+  background: radial-gradient(ellipse at center, rgba(255, 177, 92, 0.42), rgba(216, 58, 36, 0.24) 44%, transparent 74%);
+  filter: blur(58px);
+  opacity: 0.36;
+  animation: jutsuHomeGlowFocus 8s ease-in-out infinite alternate;
+}
+
+.jutsu-home-animation__grain {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.09) 0.6px, transparent 0.6px);
+  background-size: 3px 3px;
+  mix-blend-mode: soft-light;
+  opacity: 0.13;
 }
 
 .jutsu-home-animation__cut {
+  right: -7%;
+  height: 4px;
+  max-width: 760px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(216, 58, 36, 0.06), rgba(216, 58, 36, 0.92), rgba(255, 137, 54, 0.82), transparent);
+  filter: blur(0.2px) drop-shadow(0 0 18px rgba(255, 111, 48, 0.5));
   transform-origin: right center;
-  animation: jutsuHomeAnimationCut 5200ms cubic-bezier(0.22, 1, 0.36, 1)
-    infinite;
   will-change: opacity, transform;
 }
 
-.jutsu-home-animation__cut--thin {
-  animation-delay: 900ms;
-  animation-duration: 6800ms;
+.jutsu-home-animation__cut--primary {
+  bottom: 25%;
+  width: 68vw;
+  animation: jutsuHomeCutPrimary 9s cubic-bezier(0.22, 1, 0.36, 1) 650ms infinite;
+}
+
+.jutsu-home-animation__cut--secondary {
+  bottom: 33%;
+  width: 38vw;
+  height: 2px;
+  opacity: 0;
+  animation: jutsuHomeCutSecondary 12s cubic-bezier(0.22, 1, 0.36, 1) 1200ms infinite;
 }
 
 .jutsu-home-animation__logo {
@@ -482,30 +525,33 @@ img {
 @keyframes jutsuHomeAnimationImageIn {
   from {
     opacity: 0;
-    transform: scale(1.075);
+    transform: scale(1.065) translate3d(-1.8%, 0, 0);
   }
   to {
     opacity: 1;
-    transform: scale(1.025);
+    transform: scale(1.07) translate3d(-1.5%, 0, 0);
   }
 }
 
-@keyframes jutsuHomeAnimationSlowScale {
-  from {
-    transform: scale(1.025) translate3d(0, 0, 0);
+@keyframes jutsuHeroDrift {
+  0% {
+    transform: scale(1.07) translate3d(-1.8%, 0, 0);
   }
-  to {
-    transform: scale(1.075) translate3d(-1%, -0.7%, 0);
+  50% {
+    transform: scale(1.115) translate3d(1.8%, -1.2%, 0);
+  }
+  100% {
+    transform: scale(1.075) translate3d(0.2%, 1.2%, 0);
   }
 }
 
 @keyframes jutsuHomeAnimationAtmosphere {
   from {
-    opacity: 0.46;
+    opacity: 0.42;
     transform: scale(1.01);
   }
   to {
-    opacity: 0.66;
+    opacity: 0.62;
     transform: scale(1.04);
   }
 }
@@ -532,52 +578,60 @@ img {
   }
 }
 
-@keyframes jutsuHomeAnimationWarmGlow {
+@keyframes jutsuHomeGlowLarge {
   from {
+    opacity: 0.28;
+    transform: translate3d(3%, -3%, 0) scale(0.94);
+  }
+  to {
     opacity: 0.42;
-    transform: translate3d(0, 0, 0) scale(0.94);
-  }
-  to {
-    opacity: 0.78;
-    transform: translate3d(-3%, 2%, 0) scale(1.08);
+    transform: translate3d(-4%, 4%, 0) scale(1.09);
   }
 }
 
-@keyframes jutsuHomeVisibleShader {
+@keyframes jutsuHomeGlowFocus {
   from {
-    opacity: 0.58;
-    transform: translate3d(2%, -1%, 0) scale(1.01);
+    opacity: 0.26;
+    transform: translate3d(-3%, 2%, 0) scale(0.94);
   }
   to {
-    opacity: 0.9;
-    transform: translate3d(-2%, 2%, 0) scale(1.07);
+    opacity: 0.4;
+    transform: translate3d(4%, -3%, 0) scale(1.08);
   }
 }
 
-@keyframes jutsuHomeForegroundShader {
-  from {
-    opacity: 0.64;
-    transform: translate3d(1%, -1%, 0) scale(1.01);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(-2%, 1.5%, 0) scale(1.05);
-  }
-}
-
-@keyframes jutsuHomeAnimationCut {
+@keyframes jutsuHomeCutPrimary {
   0% {
     opacity: 0;
-    transform: rotate(-11deg) scaleX(0.28) translate3d(5%, 0, 0);
+    transform: rotate(-11deg) scaleX(0.18) translate3d(6%, 0, 0);
   }
-  18%,
-  54% {
-    opacity: 0.86;
+  8%,
+  18% {
+    opacity: 0.88;
     transform: rotate(-11deg) scaleX(1) translate3d(0, 0, 0);
   }
+  30%,
   100% {
     opacity: 0;
-    transform: rotate(-11deg) scaleX(0.42) translate3d(-4%, 0, 0);
+    transform: rotate(-11deg) scaleX(0.36) translate3d(-5%, 0, 0);
+  }
+}
+
+@keyframes jutsuHomeCutSecondary {
+  0%,
+  7% {
+    opacity: 0;
+    transform: rotate(-11deg) scaleX(0.18) translate3d(5%, 0, 0);
+  }
+  12%,
+  20% {
+    opacity: 0.46;
+    transform: rotate(-11deg) scaleX(1) translate3d(0, 0, 0);
+  }
+  34%,
+  100% {
+    opacity: 0;
+    transform: rotate(-11deg) scaleX(0.34) translate3d(-4%, 0, 0);
   }
 }
 
@@ -1147,13 +1201,13 @@ img {
   }
 
   .jutsu-home-slot-image,
-  .jutsu-home-animation__image,
+  .jutsu-home-animation__image-bg,
   .jutsu-home-animation__paper-shader,
   .background-paper-shaders-scene__field,
   .background-paper-shaders-scene__cut,
-  .jutsu-home-animation__visible-shader,
-  .jutsu-home-animation__foreground-shader,
-  .jutsu-home-animation__warm-glow,
+  .jutsu-home-animation__grade,
+  .jutsu-home-animation__glow,
+  .jutsu-home-animation__grain,
   .jutsu-home-animation__cut,
   .jutsu-home-animation__logo,
   .jutsu-home-hero-logo,
@@ -1165,6 +1219,52 @@ img {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .jutsu-home-animation__glow {
+    opacity: 0.2 !important;
+  }
+
+  .jutsu-home-animation__cut {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .jutsu-home-animation__image-bg {
+    animation-duration: 18s;
+    filter: contrast(1.14) saturate(1.14) brightness(0.94);
+  }
+
+  .jutsu-home-animation__paper-shader {
+    display: none;
+  }
+
+  .jutsu-home-animation__glow--large {
+    opacity: 0.2;
+    right: -18%;
+    top: 16%;
+    width: 82vw;
+    height: 44vh;
+    filter: blur(76px);
+  }
+
+  .jutsu-home-animation__glow--focus {
+    opacity: 0.22;
+    right: 12%;
+    bottom: 24%;
+    width: 52vw;
+    filter: blur(52px);
+  }
+
+  .jutsu-home-animation__cut--primary {
+    bottom: 30%;
+    width: 84vw;
+    animation-iteration-count: 1;
+  }
+
+  .jutsu-home-animation__cut--secondary {
+    display: none;
   }
 }
 
