@@ -43,11 +43,15 @@ function GalleryCard({
 
   return (
     <figure
+      aria-hidden={decorative ? "true" : undefined}
+      role={decorative ? "presentation" : undefined}
       className={`group relative shrink-0 overflow-hidden rounded-lg bg-neutral-950 shadow-[0_18px_42px_rgba(0,0,0,0.24)] ${shape}`}
     >
       <Image
         src={item.src}
         alt={decorative ? "" : item.alt}
+        aria-hidden={decorative ? "true" : undefined}
+        role={decorative ? "presentation" : undefined}
         fill
         sizes="(max-width: 768px) 190px, 390px"
         quality={86}
@@ -88,12 +92,7 @@ function GalleryLoop({
           />
         ))}
       </div>
-      <div
-        className="flex gap-4"
-        aria-hidden="true"
-        inert
-        role="presentation"
-      >
+      <div className="flex gap-4" aria-hidden="true" role="presentation">
         {items.map((item, index) => (
           <GalleryCard
             key={`${item.src}-${direction}-loop-${index}`}
@@ -112,7 +111,12 @@ export function FoodGalleryMarquee({ items }: { items: GalleryItem[] }) {
   const isDesktop = useIsDesktopGallery();
   const galleryImages = Array.from(
     new Map(items.map((item) => [item.src, item])).values(),
-  ).slice(0, 10);
+  )
+    .filter((item) => {
+      const alt = item.alt.trim().toLowerCase();
+      return alt.length > 0 && alt !== "image";
+    })
+    .slice(0, 10);
   const midpoint = Math.ceil(galleryImages.length / 2);
   const rowOne = galleryImages.slice(0, midpoint);
   const rowTwo = galleryImages.slice(midpoint);

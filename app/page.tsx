@@ -6,6 +6,7 @@ import { Reveal } from "@/components/Reveal";
 import { SectionIntro } from "@/components/SectionIntro";
 import { SocialIconLinks } from "@/components/SocialIconLinks";
 import { JutsuHero } from "@/components/jutsu/JutsuHero";
+import { JutsuTestimonialsMarquee } from "@/components/jutsu/JutsuTestimonialsMarquee";
 import { JUTSU_CONFIG } from "@/data/jutsu-config";
 import { locationImage } from "@/data/jutsu-media";
 import {
@@ -165,23 +166,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section-pad bg-neutral-950 text-white">
-          <div className="container-page">
-            <Reveal threshold={0.42} className="max-w-3xl">
-              <p className="text-sm font-black text-[var(--jutsu-red)]">
-                ★★★★★ {JUTSU_CONFIG.googleRating} no Google ·{" "}
-                {JUTSU_CONFIG.googleReviews} avaliações
-              </p>
-              <h2 className="mt-4 text-4xl font-black leading-[1.04] md:text-6xl">
-                Quem pede, volta.
-              </h2>
-              <p className="mt-5 max-w-2xl text-base font-bold leading-7 text-white/68 md:text-lg">
-                Clientes destacam sabor, praticidade e uma proposta japonesa com
-                ótimo custo-benefício.
-              </p>
-            </Reveal>
-          </div>
-        </section>
+        <JutsuTestimonialsMarquee />
 
         <section id="localizacao" className="section-pad bg-[#fffdf9]">
           <Reveal

@@ -51,7 +51,7 @@ const whatsappLinks = {
 };
 
 const linkOptions = ["Delivery", "Retirada", "Jantar à noite"];
-const instagramTestimonials = jutsuReviews.slice(0, 8);
+const instagramTestimonials = jutsuReviews.slice(0, 18);
 
 function IconRoute() {
   return (

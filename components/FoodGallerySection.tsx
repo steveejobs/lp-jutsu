@@ -27,7 +27,12 @@ const cinematicImages = cinematicGalleryImages;
 
 const uniqueImages = Array.from(
   new Map(cinematicImages.map((img) => [img.src, img])).values(),
-).slice(0, 10);
+)
+  .filter((item) => {
+    const alt = item.alt.trim().toLowerCase();
+    return alt.length > 0 && alt !== "image";
+  })
+  .slice(0, 10);
 
 function GallerySection({
   id,
@@ -39,7 +44,12 @@ function GallerySection({
 }: GallerySectionProps) {
   const galleryImages = Array.from(
     new Map(items.map((item) => [item.src, item])).values(),
-  ).slice(0, 10);
+  )
+    .filter((item) => {
+      const alt = item.alt.trim().toLowerCase();
+      return alt.length > 0 && alt !== "image";
+    })
+    .slice(0, 10);
 
   return (
     <section
